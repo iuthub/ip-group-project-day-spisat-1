@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [
+  'uses' => 'HotelController@getIndex',
+  'as' => 'index'
+]);
+
+Route::group([
+  'prefix' => 'admin'
+], function() {
+
+    Route::get('/', [
+      'uses' => 'HotelController@getAdminIndex',
+      'as' => 'adminIndex'
+    ]);
+
 });

@@ -8,6 +8,6 @@
     <body>
       @include('partials.navbar')
       
-      yield('content')
+      @yield('content')
     </body>
 </html>

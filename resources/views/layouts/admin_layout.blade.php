@@ -8,6 +8,6 @@
     <body>
       @include('partials.admin_navbar')
       
-      yield('content')
+      @yield('content')
     </body>
 </html>
