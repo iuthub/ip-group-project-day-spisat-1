@@ -8,6 +8,8 @@
     <body>
       @include('partials.admin_navbar')
       
+      @include('partials.admin_left_menu')
+
       @yield('content')
     </body>
 </html>

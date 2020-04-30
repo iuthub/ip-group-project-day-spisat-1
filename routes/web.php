@@ -18,6 +18,11 @@ Route::get('/', [
   'as' => 'index'
 ]);
 
+Route::get('/reservations', [
+  'uses' => 'HotelController@getReservations',
+  'as' => 'reservations'
+]);
+
 Route::group([
   'prefix' => 'admin'
 ], function() {
@@ -25,6 +30,11 @@ Route::group([
     Route::get('/', [
       'uses' => 'HotelController@getAdminIndex',
       'as' => 'adminIndex'
+    ]);
+
+    Route::get('/reservations', [
+      'uses' => 'HotelController@getAdminReservations',
+      'as' => 'adminReservations'
     ]);
 
 });

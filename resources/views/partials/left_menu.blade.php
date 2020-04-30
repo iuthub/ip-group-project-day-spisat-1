@@ -1,4 +1,4 @@
-<div style="float: left; margin: 0 40px; border: 1px solid black">
+<div style="float: left; margin: 40px; border: 1px solid black">
   <form>
     @csrf
 
