@@ -18,6 +18,24 @@ class RoomSeeder extends Seeder
             'main_picture_name' => '1001.jpg'
         ]);
         DB::table('rooms')->insert([
+            'name' => 'Lower Floor',
+            'room_type_id' => 1,
+            'room_number' => 1002,
+            'main_picture_name' => '1002.jpg'
+        ]);
+        DB::table('rooms')->insert([
+            'name' => 'Lower Floor',
+            'room_type_id' => 2,
+            'room_number' => 1003,
+            'main_picture_name' => '1003.jpg'
+        ]);
+        DB::table('rooms')->insert([
+            'name' => 'Lower Floor',
+            'room_type_id' => 3,
+            'room_number' => 1004,
+            'main_picture_name' => '1004.jpg'
+        ]);
+        DB::table('rooms')->insert([
             'name' => 'Garden View',
             'room_type_id' => 2,
             'room_number' => 4001,
@@ -37,7 +55,7 @@ class RoomSeeder extends Seeder
         ]);
         DB::table('rooms')->insert([
             'name' => 'Garden View',
-            'room_type_id' => 2,
+            'room_type_id' => 3,
             'room_number' => 1002,
             'main_picture_name' => '1002.jpg'
         ]);
