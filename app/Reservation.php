@@ -10,6 +10,10 @@ class Reservation extends Model
         return $this->belongsTo('App\Room');
     }
 
+    public function user () {
+        return $this->belongsTo('App\User');
+    }
+
     public function paymentDetail() {
         return $this->hasOne('App\PaymentDetails');
     }
