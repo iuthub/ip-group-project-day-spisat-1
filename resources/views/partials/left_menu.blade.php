@@ -1,5 +1,5 @@
 <div style="float: left; margin: 40px; border: 1px solid black">
-  <form>
+  <form method="post" action="{{ route('rooms') }}">
     @csrf
 
     <p>From: <input type="date"></p>

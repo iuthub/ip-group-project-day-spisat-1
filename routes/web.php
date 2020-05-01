@@ -23,6 +23,21 @@ Route::get('/reservations', [
   'as' => 'reservations'
 ]);
 
+Route::get('/contact_us', [
+  'uses' => 'HotelController@getContactUs',
+  'as' => 'contactUs'
+]);
+
+Route::post('/rooms', [
+  'uses' => 'HotelController@postRooms',
+  'as' => 'rooms'
+]);
+
+Route::post('/payment_details', [
+  'uses' => 'HotelController@postPaymentDetails',
+  'as' => 'paymentDetails'
+]);
+
 Route::group([
   'prefix' => 'admin'
 ], function() {
@@ -37,4 +52,13 @@ Route::group([
       'as' => 'adminReservations'
     ]);
 
+    Route::get('/rooms', [
+      'uses' => 'HotelController@getAdminRooms',
+      'as' => 'adminRooms'
+    ]);
+
+    Route::get('/add_room', [
+      'uses' => 'HotelController@getAdminAddRoom',
+      'as' => 'adminAddRoom'
+    ]);
 });

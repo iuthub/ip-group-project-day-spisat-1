@@ -1,10 +1,10 @@
-@extends('layouts.admin_layout')
+@extends('layouts.master')
 
 @section('content')
 
 <div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
   <h1>
-    Admin reservations
+    Payment Details
   </h1>
 </div>
 
