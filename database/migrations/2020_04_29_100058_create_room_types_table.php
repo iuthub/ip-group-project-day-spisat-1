@@ -19,6 +19,7 @@ class CreateRoomTypesTable extends Migration
             $table->decimal('price_per_night');
             $table->integer('room_capacity');
             $table->integer('area');
+            $table->text('description');
             $table->timestamps();
         });
     }
