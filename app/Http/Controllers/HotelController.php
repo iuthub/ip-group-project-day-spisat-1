@@ -23,7 +23,11 @@ class HotelController extends Controller
       $checkin = $request->input('checkin');
       $checkout = $request->input('checkout');
       $rooms = Room::availableRooms($checkin, $checkout);
-      return view('hotel.rooms', ['rooms' => $rooms]);
+      return view('hotel.rooms', [
+                  'rooms' => $rooms, 
+                  'checkin' => $checkin,
+                  'checkout' => $checkout
+                ]);
     }
 
     public function postPaymentDetails() {
