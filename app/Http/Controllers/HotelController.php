@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Room;
 
 class HotelController extends Controller
 {
@@ -17,8 +19,15 @@ class HotelController extends Controller
       return view('hotel.contact_us');
     }
 
-    public function postRooms() {
-      return view('hotel.rooms');
+    public function postRooms(Request $request) {
+      $checkin = $request->input('checkin');
+      $checkout = $request->input('checkout');
+      $rooms = Room::availableRooms($checkin, $checkout);
+      return view('hotel.rooms', [
+                  'rooms' => $rooms, 
+                  'checkin' => $checkin,
+                  'checkout' => $checkout
+                ]);
     }
 
     public function postPaymentDetails() {
