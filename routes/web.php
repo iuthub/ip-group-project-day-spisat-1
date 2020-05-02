@@ -28,6 +28,11 @@ Route::get('/contact_us', [
   'as' => 'contactUs'
 ]);
 
+Route::post('/contact_us/send', [
+  'uses' => 'SendEmailController@send',
+  'as' => 'sendEmail'
+]);
+
 Route::post('/rooms', [
   'uses' => 'HotelController@postRooms',
   'as' => 'rooms'
