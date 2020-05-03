@@ -44,7 +44,8 @@ Route::post('/payment_details', [
 ]);
 
 Route::group([
-  'prefix' => 'admin'
+  'prefix' => 'admin',
+  'middleware' => ['auth', 'admin']
 ], function() {
 
     Route::get('/', [
@@ -67,3 +68,14 @@ Route::group([
       'as' => 'adminAddRoom'
     ]);
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

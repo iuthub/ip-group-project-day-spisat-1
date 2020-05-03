@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'type' => 0,
             'email' => 'admin@go.com',
             'username' => 'admin',
-            'password' => 'admin',
+            'password' => '$2y$10$1rV2gfuH.d.J/v3aVP7uveZ34yJufQYDRZMcEH8fSVdsvplD7zHyu',//admin
             'dob' => Carbon::createFromFormat('d-m-Y', '01-05-2020')
         ]);
         DB::table('users')->insert([
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'type' => 1,
             'email' => 'vasya@go.com',
             'username' => 'vasya',
-            'password' => 'vasya123',
+            'password' => '$2y$10$tZ2E0e1m3UjOrXWhljrRke4XSSRoo0iEmHfLWvIC11HAuxhgDiife', //vasya123
             'dob' => Carbon::createFromFormat('d-m-Y', '08-03-1990')
         ]);
         DB::table('users')->insert([
