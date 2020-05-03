@@ -54,7 +54,7 @@ Route::group([
     ]);
 
     Route::get('/reservations', [
-      'uses' => 'HotelController@getAdminReservations',
+      'uses' => 'HotelController@getAdminIndex',
       'as' => 'adminReservations'
     ]);
 
@@ -66,6 +66,11 @@ Route::group([
     Route::get('/add_room', [
       'uses' => 'HotelController@getAdminAddRoom',
       'as' => 'adminAddRoom'
+    ]);
+
+    Route::get('updateStatus/{id}/{status}', [
+      'uses' => 'HotelController@getAdminUpdateStatus',
+      'as' => 'adminUpdateStatus'
     ]);
 });
 Auth::routes();

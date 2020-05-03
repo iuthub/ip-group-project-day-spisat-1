@@ -15,6 +15,6 @@ class Reservation extends Model
     }
 
     public function paymentDetail() {
-        return $this->hasOne('App\PaymentDetails');
+        return $this->hasOne('App\PaymentDetail');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Room;
+use App\Reservation;
 
 class HotelController extends Controller
 {
@@ -35,7 +36,8 @@ class HotelController extends Controller
     }
 
     public function getAdminIndex() {
-      return view('admin.index');
+      $reservations = Reservation::all();
+      return view('admin.index', ['reservations' => $reservations]);
     }
 
     public function getAdminReservations() {
@@ -48,5 +50,12 @@ class HotelController extends Controller
 
     public function getAdminAddRoom() {
       return view('admin.add_room');
+    }
+
+    public function getAdminUpdateStatus($id, $status) {
+      $rsrv = Reservation::find($id);
+      $rsrv->status = $status;
+      $rsrv->save();
+      return response()->json(['code'=>200]);
     }
 }
