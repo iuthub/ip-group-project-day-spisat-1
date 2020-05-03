@@ -1,0 +1,75 @@
+@font-face{
+      font-family: "Constantia W99 Bold Italic";
+      src: url("9de6919a15c56542cb62b53e6fad4cf5.eot"); /* IE9*/
+      src: url("9de6919a15c56542cb62b53e6fad4cf5.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("9de6919a15c56542cb62b53e6fad4cf5.woff2") format("woff2"), /* chrome、firefox */
+      url("9de6919a15c56542cb62b53e6fad4cf5.woff") format("woff"), /* chrome、firefox */
+      url("9de6919a15c56542cb62b53e6fad4cf5.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url("9de6919a15c56542cb62b53e6fad4cf5.svg#Constantia W99 Bold Italic") format("svg"); /* iOS 4.1- */
+      font-weight: bold;
+      font-size:16px;
+      font-style: italic;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+        }
+    
+@font-face {
+      font-family: "Constantia Italic";
+      src: url("68948ea9bc8b232cc5664e2aab39c80c.eot"); /* IE9*/
+      src: url("68948ea9bc8b232cc5664e2aab39c80c.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("68948ea9bc8b232cc5664e2aab39c80c.woff2") format("woff2"), /* chrome、firefox */
+      url("68948ea9bc8b232cc5664e2aab39c80c.woff") format("woff"), /* chrome、firefox */
+      url("68948ea9bc8b232cc5664e2aab39c80c.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url("68948ea9bc8b232cc5664e2aab39c80c.svg#Constantia Italic") format("svg"); /* iOS 4.1- */
+      font-size:16px;
+      font-weight: normal;
+      font-style: italic;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+    }    
+
+@font-face {
+      font-family: "Constantia";
+      src: url("0b9856633d4311a19df074ea509d8390.eot"); /* IE9*/
+      src: url("0b9856633d4311a19df074ea509d8390.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("0b9856633d4311a19df074ea509d8390.woff2") format("woff2"), /* chrome、firefox */
+      url("0b9856633d4311a19df074ea509d8390.woff") format("woff"), /* chrome、firefox */
+      url("0b9856633d4311a19df074ea509d8390.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url("0b9856633d4311a19df074ea509d8390.svg#Constantia") format("svg"); /* iOS 4.1- */
+      font-size:16px;
+      font-weight: normal;
+      font-style:normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+@font-face {
+      font-family: "Rage Italic V2";
+      src: url("21400dc679986534519c638136d62dbf.eot"); /* IE9*/
+      src: url("21400dc679986534519c638136d62dbf.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("21400dc679986534519c638136d62dbf.woff2") format("woff2"), /* chrome、firefox */
+      url("21400dc679986534519c638136d62dbf.woff") format("woff"), /* chrome、firefox */
+      url("21400dc679986534519c638136d62dbf.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url("21400dc679986534519c638136d62dbf.svg#Rage Italic V2") format("svg"); /* iOS 4.1- */
+      font-size:16px;
+      font-style:italic;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+html{
+  box-sizing: border-box;
+}
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+.wrapper{
+  max-width: 1050px;
+  margin: 0 auto;
+}
