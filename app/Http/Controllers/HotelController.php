@@ -31,8 +31,13 @@ class HotelController extends Controller
                 ]);
     }
 
-    public function postPaymentDetails() {
-      return view('hotel.payment_details');
+    public function postPaymentDetails(Request $request) {
+      $checkin = $request->input('checkin');
+      $checkout = $request->input('checkout');
+      return view('hotel.payment_details', [
+                  'checkin' => $checkin,
+                  'checkout' => $checkout
+                ]);
     }
 
     public function getAdminIndex() {

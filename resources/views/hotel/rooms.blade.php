@@ -16,7 +16,8 @@
   </ul>
   <form method="post" action="{{ route('paymentDetails') }}">
     @csrf
-
+    <input type="text" hidden value="{{ $checkin }}" name="checkin">
+    <input type="text" hidden value="{{ $checkout }}" name="checkout">
     <input type="submit" value="submit">
   </form>
 </div>
