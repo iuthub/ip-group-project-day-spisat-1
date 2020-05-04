@@ -18,6 +18,7 @@
     @csrf
     <input type="text" hidden value="{{ $checkin }}" name="checkin">
     <input type="text" hidden value="{{ $checkout }}" name="checkout">
+    <input type="text" hidden value="{{ $number_of_guests }}" name="number_of_guests">
     <input type="submit" value="submit">
   </form>
 </div>

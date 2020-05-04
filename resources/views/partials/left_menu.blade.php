@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] != "POST"){
     <p>To: <input type="date" name="checkout" value="{{ $checkout }}"></p>
     <p>Number of people: 
       <select name="number_of_guests">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
       </select>
     </p>
     <p><input type="submit" value="Search"></p>
