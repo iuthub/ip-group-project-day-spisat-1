@@ -21,6 +21,7 @@
 </head>
 
 <body class="bg-light">
+
   <header class="bg-semi-transparent">
     <nav class="container navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="#">
@@ -52,48 +53,59 @@
         </ul>
       </div>
     </nav>
-
   </header>
-  <div class="offset-md-2 col-md-8">
-    <div class="window">
-      <div class="jumbotron" style="background-color:#2C405B">
-        <div class="container">
-          <div class="form-group checkin">
-            <ul>
-              <label for="usr">Check In</label><br>
-              <input class="form-control text-light bg-transparent" type="date" />
-            </ul>
+
+  <section class="main">
+    <div class="container booking">
+      <div class="searchingrooms" style="background-color:#2C405B">
+        <div class="row align-items-center">
+
+          <div class="col">
+            <div class="checkin">
+              <ul>
+                <label for="check-in">Check In</label><br>
+                <div class="input-group">
+                  <input type="date" class="form-control text-light bg-transparent" id="check-in" />
+                </div>
+              </ul>
+            </div>
           </div>
-          <li class="slash1">
-            <img src="./images/Line 4.svg" alt="Line">
-          </li>
-          <div class="form-group checkout">
-            <ul>
-              <label for="usr">Check Out</label><br>
-              <input class="form-control text-light bg-transparent" type="date" />
-            </ul>
+
+          <div class="col">
+            <div class="checkout">
+              <ul>
+                <label for="check-out">Check Out</label>
+                <div class="input-group">
+                  <input type="date" class="form-control text-light bg-transparent" id="check-out" />
+                </div>
+              </ul>
+            </div>
           </div>
-          <li class="slash2">
-            <img src="./images/Line 4.svg" alt="Line">
-          </li>
-          <div class="form-group guestslist">
-            <ul>
-              <label for="sel1">Guests</label>
-              <select class="form-control text-light bg-transparent" id="sel1">
-                <option class="text-dark">1</option>
-                <option class="text-dark">2</option>
-                <option class="text-dark">3</option>
-                <option class="text-dark">4</option>
-              </select>
-            </ul>
+
+          <div class="col">
+            <div class="guestslist">
+              <ul>
+                <label for="checking">Guests</label>
+                <select class="form-control text-light bg-transparent" id="checking">
+                  <option class="text-dark">1</option>
+                  <option class="text-dark">2</option>
+                  <option class="text-dark">3</option>
+                  <option class="text-dark">4</option>
+                </select>
+              </ul>
+            </div>
           </div>
-          <li class="checkrooms">
-            <button type="button" class="btn btn-success active">Check Availability</button>
-          </li>
+
+          <div class="col">
+            <div class="checkrooms">
+              <button type="button" class="btn btn-success active">Check Availability</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
   <div class="offset-md-5 col-md-2 about">
     <img src="./images/AboutUs.svg" alt="About Us">
   </div>
@@ -108,6 +120,22 @@
   <div class="offset-md-4 col-md-4 btxt">
     <p class="text-center">Enjoy your time in our hotel!</p>
   </div>
+
+  <footer class="page-footer bg-semi-transparent">
+    <div class="container-fluid ftr text-center text-md-left">
+      <div class=" offset-md-1 col-md-2 ">
+        <ul>
+          <a href="">Reservation</a><br>
+          <a href="">Contact Us</a>
+          <br>
+          <br>
+          <p class="text text-light">Day Spisat'1 Team, 2020</p>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
 </body>
 
 </html>

@@ -114,8 +114,7 @@ html, body{
   left: 1130px;
   top: 13px;
   color: #FFFFFF;
-}
-
+}    
 .join{
     position: absolute;
     left: 967px;
@@ -124,21 +123,17 @@ html, body{
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
-    line-height: 24px; 
-       
-  }
-
+    line-height: 24px;            
+  }    
 .signin{      
   position: absolute;
   left: 1039px;
-  top: 15px;
-  
+  top: 15px;      
   font-family: Constantia;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
-
 }
 .slash{
   position: absolute;
@@ -146,81 +141,54 @@ html, body{
   height: 0px;
   left: 1029px;
   top: 10px;
+}    
+.searchingrooms{
+  max-height: 100px;
+  border-radius: 8.5px 8.5px 8.5px 8.5px;
+}  
+.booking{
+margin-top: 550px;      
+color: #2C405B;
+max-height: 100px;
+opacity: 0.8;
+border-radius: 8.5px 8.5px 8.5px 8.5px;
 }
-
-.window{
-  margin-top: 575px; 
-  
-  color: #2C405B;
-  height: 120px;
-  opacity: 0.8;    
-  box-sizing: border-box;
-  border-radius: 8.5px;
-}
-
 .form-group{
- position: absolute;        
+ position: relative;        
 } 
-
 .checkin{
+ 
 font-family: Constantia;
 font-style: normal;
-font-weight: normal;
-color: #FFFFFF;
-top: 25px;
-left: 30px;
-
+font-weight: normal; 
+color: #FFFFFF;    
 }
-
 .checkout{
+
 font-family: Constantia;
 font-style: normal;
 font-weight: normal;
-color: #FFFFFF;
-left: 300px;
-top: 25px;
-
-
+color: #FFFFFF;    
 }
-
 .guestslist{
- position: absolute;
+ 
 font-family: Constantia;
 font-style: normal;
 font-weight: normal;
 color: #FFFFFF;
-top: 22px;
-left:565px;
+
 }
-.checkrooms{
-position: absolute;
-top: 50px;
-left: 725px;   
+.checkrooms{     
+
 font-family: Constantia;
 font-style: normal;
 font-weight: normal;
 font-size: 20px;
 line-height: 24px;
 }
-
-.slash1{
-  position: absolute;
-  width: 99px;
-  height: 0px;
-  left: 260px;
-  top: 15px;
-}
-.slash2{
-  position: absolute;
-  width: 99px;
-  height: 0px;
-  left: 525px;
-  top: 15px;
-}
 .about{
 position: absolute;
 top: 200px;
-
 }
 .atxt{
 position: absolute;
@@ -238,4 +206,22 @@ font-style: italic;
 font-weight: bold;
 font-size: 24px;
 line-height: 39px;
+} 
+.ftr{
+margin-top: 750px;
+margin-bottom: 0px;
+height: 150px;
+padding-top: 30px;
+font-family: Constantia;
+font-style: italic;
+text-align: left;
+color: #FFFFFF;
 }
+.page-footer{
+background-color: rgba(44,64,91);
+min-height: 100px;
+} 
+.a{
+color: #FFFFFF;
+}
+
