@@ -20,41 +20,94 @@
     crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="bg-light">
+  <header class="bg-semi-transparent">
+    <nav class="container navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">
+        <img src="./images/Name.svg" alt="The Chemodan" />
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="reserve">
+            <a class="nav-link active" href="#">Reservation</a>
+          </li>
+          <li class="contact">
+            <a class="nav-link active" href="#">Contact us</a>
+          </li>
+          <li class="join">
+            <button type="button" class="btn btn-success">Join</button>
+          </li>
 
-  <body class="bg-primary">
-    <header class="bg-semi-transparent">
-      <nav class="container navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">
-          <img src="./images/Name.svg" alt="The Chemodan" />
-        </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="reserve">
-              <a class="nav-link" href="#">Reservation</a>
-            </li>
-            <li class="contact">
-              <a class="nav-link" href="#">Contact us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign in</a>
-            </li>
-            <li>
-              <p class="navbar-text"> | </p>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign up</a>
-            </li>
-            <li class="icon">
-              <a class="nav-link disabled" tabindex="-1" aria-disabled="true">
-                <img src="./images/social-media 1.svg" height="30" alt="" />
-              </a>
-            </li>
-          </ul>
+          <li class="slash">
+            <img src="./images/Line 6.svg" alt="Line">
+          </li>
+          <li class="signin">
+            <button type="button" class="btn btn-success">Sign In</button>
+          </li>
+          <li class="icon">
+            <a class="nav-link disabled" tabindex="-1" aria-disabled="true">
+              <img src="./images/social-media 1.svg" height="30" alt="" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+  <div class="offset-md-2 col-md-8">
+    <div class="window">
+      <div class="jumbotron" style="background-color:#2C405B">
+        <div class="container">
+          <div class="form-group checkin">
+            <ul>
+              <label for="usr">Check In</label><br>
+              <input class="form-control text-light bg-transparent" type="date" />
+            </ul>
+          </div>
+          <li class="slash1">
+            <img src="./images/Line 4.svg" alt="Line">
+          </li>
+          <div class="form-group checkout">
+            <ul>
+              <label for="usr">Check Out</label><br>
+              <input class="form-control text-light bg-transparent" type="date" />
+            </ul>
+          </div>
+          <li class="slash2">
+            <img src="./images/Line 4.svg" alt="Line">
+          </li>
+          <div class="form-group guestslist">
+            <ul>
+              <label for="sel1">Guests</label>
+              <select class="form-control text-light bg-transparent" id="sel1">
+                <option class="text-dark">1</option>
+                <option class="text-dark">2</option>
+                <option class="text-dark">3</option>
+                <option class="text-dark">4</option>
+              </select>
+            </ul>
+          </div>
+          <li class="checkrooms">
+            <button type="button" class="btn btn-success active">Check Availability</button>
+          </li>
         </div>
-      </nav>
-    </header>
-
-  </body>
+      </div>
+    </div>
+  </div>
+  <div class="offset-md-5 col-md-2 about">
+    <img src="./images/AboutUs.svg" alt="About Us">
+  </div>
+  <div class="offset-md-2 col-md-8 atxt">
+    <p class="text-center">“The Chemodan” Hotel is one of the best places where you can take a rest after your flight or
+      meeting. Access to the high-speed Internet will give you ability to be in contact with your family, friends, and
+      colleagues. Delicious dishes in our restaurant and an outdoor pool will not leave you indifferent, while various
+      entertainment clubs will help you to have fun. For those who came with families our hotel have special family
+      rooms and playground for little ones.
+    </p>
+  </div>
+  <div class="offset-md-4 col-md-4 btxt">
+    <p class="text-center">Enjoy your time in our hotel!</p>
+  </div>
+</body>
 
 </html>
