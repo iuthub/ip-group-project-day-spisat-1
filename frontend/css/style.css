@@ -61,14 +61,24 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.bg-semi-transparent {
-  background-color: rgba(0, 0, 0, 0.25);
+html, body{
+  background-image: url("../images/hoxton-paris-lobby.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+}
+
+  .bg-semi-transparent {
+  background-color: rgba(44,64,91, 0.8);
+  }
+  .navbar {
+    min-height: 75px;
   }
 .navbar-brand{
   position: absolute;
   width: 372px;
   height: 50px; 
-  left: 12px;
+  left: 0px;
   top: 0px;
   }
 .reserve{
@@ -77,14 +87,12 @@
   height: 42.97px;
   left: 691px;
   top: 18px;
-
   font-family: Constantia;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
-
-  color:white;
+  color:#FFFFFF;
 }
 .contact{
   position: absolute;
@@ -92,21 +100,142 @@
   height: 46.28px;
   left: 829px;
   top: 18px;
-
   font-family: Constantia;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
-
   color: #FFFFFF;
 }
 .icon{
   position: absolute;
   width: 34px;
   height: 33px;
-  left: 1143px;
+  left: 1130px;
   top: 13px;
   color: #FFFFFF;
 }
+
+.join{
+    position: absolute;
+    left: 967px;
+    top: 15px;    
+    font-family: Constantia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px; 
+       
+  }
+
+.signin{      
+  position: absolute;
+  left: 1039px;
+  top: 15px;
   
+  font-family: Constantia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+
+}
+.slash{
+  position: absolute;
+  width: 50px;
+  height: 0px;
+  left: 1029px;
+  top: 10px;
+}
+
+.window{
+  margin-top: 575px; 
+  
+  color: #2C405B;
+  height: 120px;
+  opacity: 0.8;    
+  box-sizing: border-box;
+  border-radius: 8.5px;
+}
+
+.form-group{
+ position: absolute;        
+} 
+
+.checkin{
+font-family: Constantia;
+font-style: normal;
+font-weight: normal;
+color: #FFFFFF;
+top: 25px;
+left: 30px;
+
+}
+
+.checkout{
+font-family: Constantia;
+font-style: normal;
+font-weight: normal;
+color: #FFFFFF;
+left: 300px;
+top: 25px;
+
+
+}
+
+.guestslist{
+ position: absolute;
+font-family: Constantia;
+font-style: normal;
+font-weight: normal;
+color: #FFFFFF;
+top: 22px;
+left:565px;
+}
+.checkrooms{
+position: absolute;
+top: 50px;
+left: 725px;   
+font-family: Constantia;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 24px;
+}
+
+.slash1{
+  position: absolute;
+  width: 99px;
+  height: 0px;
+  left: 260px;
+  top: 15px;
+}
+.slash2{
+  position: absolute;
+  width: 99px;
+  height: 0px;
+  left: 525px;
+  top: 15px;
+}
+.about{
+position: absolute;
+top: 200px;
+
+}
+.atxt{
+position: absolute;
+top: 300px;
+font-family: Constantia;
+font-style: italic;
+font-size: 24px;
+line-height: 39px;
+}
+.btxt{
+position: absolute;
+top: 370px;
+font-family: Constantia;
+font-style: italic;
+font-weight: bold;
+font-size: 24px;
+line-height: 39px;
+}
