@@ -160,7 +160,7 @@ html, body {
 .single{
   top: 400px;
 }
-.single-photo{
+.photo{
 position: absolute;
 margin-top: 100px;
 width: 588px;
@@ -190,7 +190,7 @@ font-style: italic;
 }
 
 .ftr{
-margin-top: 750px;
+margin-top: 150px;
 margin-bottom: 0px;
 height: 150px;
 padding-top: 30px;
