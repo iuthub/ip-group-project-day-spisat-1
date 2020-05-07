@@ -64,6 +64,25 @@
 html, body {
   
 }
+.fstyle{
+  position: relative;
+  font-family: Constantia;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: bold;
+  color: black;
+}
+.mstyle{
+  position: relative;
+  font-family: Constantia;
+  font-size: 20.5px;
+  font-style: italic;
+  font-weight: normal;
+  color: black;
+}
+.fstyle1{
+  margin-top: 100px;
+}
   .hdr {
   background-color: rgba(44,64,91);
   }
@@ -137,7 +156,38 @@ html, body {
   height: 0px;
   left: 1029px;
   top: 10px;
-}    
+}  
+.single{
+  top: 400px;
+}
+.single-photo{
+position: absolute;
+margin-top: 100px;
+width: 588px;
+height: 333px;
+border-radius: 5px;
+}  
+.btn1, .btn2{
+  margin-top: 60px;
+}
+.double{
+  position: relative;
+ margin-top: 100px;
+}
+.btn3, .btn4{
+  margin-top: 60px;
+}
+.double-photo{
+  position: absolute;
+  width: 588px;
+height: 350px;
+border-radius: 5px;
+
+}
+.modal{
+  font-family: Constantia;
+font-style: italic;
+}
 
 .ftr{
 margin-top: 750px;
