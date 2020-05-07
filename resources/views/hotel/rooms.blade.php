@@ -12,15 +12,16 @@
   		<p>{{ $room->main_picture_name }}</p>
   		<p>{{ $room->roomType->price_per_night }}</p>
   	</li>
+    <form method="post" action="{{ route('paymentDetails') }}">
+      @csrf
+      <input type="text" hidden value="{{ $checkin }}" name="checkin">
+      <input type="text" hidden value="{{ $checkout }}" name="checkout">
+      <input type="text" hidden value="{{ $number_of_guests }}" name="number_of_guests">
+      <input type="text" hidden value="{{ $room->id }}" name="room_id">
+      <input type="submit" value="order">
+    </form>
   	@endforeach
   </ul>
-  <form method="post" action="{{ route('paymentDetails') }}">
-    @csrf
-    <input type="text" hidden value="{{ $checkin }}" name="checkin">
-    <input type="text" hidden value="{{ $checkout }}" name="checkout">
-    <input type="text" hidden value="{{ $number_of_guests }}" name="number_of_guests">
-    <input type="submit" value="submit">
-  </form>
 </div>
 
 @endsection

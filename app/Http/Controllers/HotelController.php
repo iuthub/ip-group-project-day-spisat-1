@@ -39,13 +39,19 @@ class HotelController extends Controller
     }
 
     public function postPaymentDetails(Request $request) {
+      if(!Auth::check()) {
+        return view('auth.login');
+      }
+
       $checkin = $request->input('checkin');
       $checkout = $request->input('checkout');
+      $room_id = $request->input('room_id');
       $number_of_guests = $request->input('number_of_guests');
 
       return view('hotel.payment_details', [
         'checkin' => $checkin,
         'checkout' => $checkout,
+        'room_id' => $room_id,
         'number_of_guests' => $number_of_guests
       ]);
     }
@@ -53,12 +59,13 @@ class HotelController extends Controller
     public function addPaymentDetails(Request $request) {
       $checkin = $request->input('checkin');
       $checkout = $request->input('checkout');
+      $room_id = $request->input('room_id');
       $number_of_guests = $request->input('number_of_guests');
 
       $user = Auth::user();
 
       $reservation = new Reservation();      
-      $reservation->room_id = 1;
+      $reservation->room_id = $room_id;
       $reservation->checkin = $checkin;
       $reservation->checkout = $checkout;
       $reservation->number_of_guests = $number_of_guests;

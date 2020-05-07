@@ -6,8 +6,8 @@
   <form method="post" action="{{ route('addPaymentDetails') }}">
     @csrf
 
-    <p>First name: <input type="text" name="first_name"/></p>
-    <p>Last name: <input type="text" name="last_name"/></p>
+    <p>First name: <input type="text" name="first_name" value="{{ Auth::user()->first_name }}"/></p>
+    <p>Last name: <input type="text" name="last_name" value="{{ Auth::user()->last_name }}"/></p>
     <p>Card number: <input type="text" name="card_number"/></p>
     <p>CVC: <input type="text" name="cvc"/></p>
     <p>Street: <input type="text" name="street"/></p>
@@ -19,6 +19,7 @@
 
     <input type="hidden" name="checkin" value="{{ $checkin }}">
     <input type="hidden" name="checkout" value="{{ $checkout }}">
+    <input type="hidden" name="room_id" value="{{ $room_id }}">
     <input type="hidden" name="number_of_guests" value="{{ $number_of_guests }}">
 
     <input type="submit">
