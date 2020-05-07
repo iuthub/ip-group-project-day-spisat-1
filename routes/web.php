@@ -43,6 +43,11 @@ Route::post('/payment_details', [
   'as' => 'paymentDetails'
 ]);
 
+Route::post('/payment_details/add', [
+  'uses' => 'HotelController@addPaymentDetails',
+  'as' => 'addPaymentDetails'
+]);
+
 Route::group([
   'prefix' => 'admin',
   'middleware' => ['auth', 'admin']
