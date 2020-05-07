@@ -40,7 +40,7 @@ class HotelController extends Controller
 
     public function postPaymentDetails(Request $request) {
       if(!Auth::check()) {
-        return view('auth.login');
+        return redirect()->route('login');
       }
 
       $checkin = $request->input('checkin');
