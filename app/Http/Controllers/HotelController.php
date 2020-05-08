@@ -18,7 +18,12 @@ class HotelController extends Controller
     }
 
     public function getReservations() {
-      return view('hotel.reservations');
+      if(!Auth::check()) {
+        return redirect()->route('login');
+      }
+      $reservations = Auth::user()->reservations;
+
+      return view('hotel.reservations', ['reservations' => $reservations]);
     }
 
     public function getContactUs() {
