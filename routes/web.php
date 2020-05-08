@@ -88,6 +88,11 @@ Route::group([
       'as' => 'adminAddRoom'
     ]);
 
+    Route::post('/handle_add_room', [
+      'uses' => 'HotelController@handleAddRoom',
+      'as' => 'handleAddRoom'
+    ]);
+
     Route::get('updateStatus/{id}/{status}', [
       'uses' => 'HotelController@getAdminUpdateStatus',
       'as' => 'adminUpdateStatus'

@@ -130,7 +130,20 @@ class HotelController extends Controller
     }
 
     public function getAdminAddRoom() {
-      return view('admin.add_room');
+      $room_types = RoomType::all();
+      return view('admin.add_room', ['room_types' => $room_types]);
+    }
+
+    public function handleAddRoom(Request $request) {
+      $room = new Room();
+      $room->name = $request->input('name');
+      $room->room_number = $request->input('room_number');
+      $room->main_picture_name = $request->input('picture_name');
+      $room->room_type_id = $request->input('room_type_id');
+
+      $room->save();
+
+      return redirect()->route('adminRooms');
     }
 
     public function getAdminUpdateStatus($id, $status) {
