@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Room;
+use App\RoomType;
 use App\Reservation;
 use App\User;
 use App\PaymentDetail;
@@ -99,11 +100,50 @@ class HotelController extends Controller
     }
 
     public function getAdminRooms() {
-      return view('admin.rooms');
+      $rooms = Room::all();
+      return view('admin.rooms', ['rooms' => $rooms]);
+    }
+
+    public function deleteRoom(Request $request) {
+      $room = Room::find($request->input('room_id'));
+      $room->delete();
+
+      return redirect()->route('adminRooms');
+    }
+
+    public function postEditRoom(Request $request) {
+      $room = Room::find($request->input('room_id'));
+      $room_types = RoomType::all();
+      return view('admin.edit_room', ['room' => $room, 'room_types' => $room_types]);
+    }
+
+    public function handleEditRoom(Request $request) {
+      $room = Room::find($request->input('room_id'));
+      $room->name = $request->input('name');
+      $room->room_number = $request->input('room_number');
+      $room->main_picture_name = $request->input('picture_name');
+      $room->room_type_id = $request->input('room_type_id');
+
+      $room->save();
+
+      return redirect()->route('adminRooms');
     }
 
     public function getAdminAddRoom() {
-      return view('admin.add_room');
+      $room_types = RoomType::all();
+      return view('admin.add_room', ['room_types' => $room_types]);
+    }
+
+    public function handleAddRoom(Request $request) {
+      $room = new Room();
+      $room->name = $request->input('name');
+      $room->room_number = $request->input('room_number');
+      $room->main_picture_name = $request->input('picture_name');
+      $room->room_type_id = $request->input('room_type_id');
+
+      $room->save();
+
+      return redirect()->route('adminRooms');
     }
 
     public function getAdminUpdateStatus($id, $status) {
