@@ -16,7 +16,7 @@ class CreatePaymentDetailsTable extends Migration
         Schema::create('payment_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('reservation_id')->unsigned();
-            $table->foreign('reservation_id')->references('id')->on('reservations');
+            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
             $table->string('first_name', 128);
             $table->string('last_name', 128);
             $table->string('card_number', 16);

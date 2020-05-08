@@ -68,6 +68,21 @@ Route::group([
       'as' => 'adminRooms'
     ]);
 
+    Route::post('/delete_rooms', [
+      'uses' => 'HotelController@deleteRoom',
+      'as' => 'deleteRoom'
+    ]);
+
+    Route::post('/edit_room', [
+      'uses' => 'HotelController@postEditRoom',
+      'as' => 'editRoom'
+    ]);
+
+    Route::post('/handle_edit_room', [
+      'uses' => 'HotelController@handleEditRoom',
+      'as' => 'handleEditRoom'
+    ]);
+
     Route::get('/add_room', [
       'uses' => 'HotelController@getAdminAddRoom',
       'as' => 'adminAddRoom'
