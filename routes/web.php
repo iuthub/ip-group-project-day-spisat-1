@@ -53,6 +53,11 @@ Route::post('/payment_details/validate', [
   'as' => 'validatePaymentDetails'
 ]);
 
+Route::get('/confirm_booking/{id}', [
+  'uses' => 'HotelController@confirmBooking',
+  'as' => 'confirmBooking'
+]);
+
 Route::group([
   'prefix' => 'admin',
   'middleware' => ['auth', 'admin']

@@ -22,8 +22,7 @@
     <input type="hidden" name="room_id" value="{{ $room_id }}">
     <input type="hidden" name="number_of_guests" value="{{ $number_of_guests }}">
 
-    {{-- <input id="submit" type="submit" hidden> --}}
-    <button type="button" class="btn-submit">Submit</button>
+    <input type="Submit" class="btn-submit" value="Book" />
   </form>
 </div>
 <script>

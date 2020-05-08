@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Room;
 use App\RoomType;
@@ -67,7 +68,7 @@ class HotelController extends Controller
       $checkout = $request->input('checkout');
       $room_id = $request->input('room_id');
       $number_of_guests = $request->input('number_of_guests');
-
+      
       $user = Auth::user();
 
       $reservation = new Reservation();      
@@ -92,13 +93,17 @@ class HotelController extends Controller
       $user->reservations()->save($reservation);
       $reservation->paymentDetail()->save($payment_detail);
 
-      return redirect()->route('index');
+      $id = $reservation->id;
+      return response()->json(['success'=> 
+        ['id' => $id],
+        $this->validatePaymentDetails($request)
+      ]);
     }
 
     public function validatePaymentDetails(Request $request) {
       $rules = [
-        'first_name' => ['required', 'string', 'min:2', 'max:128'],
-        'last_name' => ['required', 'string', 'min:2', 'max:128'],
+        'first_name' => ['required', 'string', 'min:1', 'max:128'],
+        'last_name' => ['required', 'string', 'min:1', 'max:128'],
         'card_number' => ['required', 'string', 'regex:/^\d{16}$/'],
         'cvc' => ['required', 'string', 'regex:/^\d{3}$/'],
         'phone' => ['required', 'string', 'regex:/^\+998-\d{2}-\d{7}$/'],
@@ -119,10 +124,39 @@ class HotelController extends Controller
       $validation = Validator::make($request->all(), $rules, $customMessages);
 
       if ($validation->fails()) {
-          return response()->json(['error'=>$validation->errors()->all()]);
+          return ['error'=>$validation->errors()->all()];
       }
+    }
 
-      return response()->json(['success'=> ['Payment accepted!']]);
+    public function confirmBooking($id) {
+      // $checkin = $request->input('checkin');
+      // $checkout = $request->input('checkout');
+      // $room_id = $request->input('room_id');
+      // $number_of_guests = $request->input('number_of_guests');
+      
+      
+
+      // $reservation = new Reservation();      
+      // $reservation->room_id = $room_id;
+      // $reservation->checkin = $checkin;
+      // $reservation->checkout = $checkout;
+      // $reservation->number_of_guests = $number_of_guests;
+      // $reservation->status = 0;
+
+      // $payment_detail = new PaymentDetail();
+      // $payment_detail->first_name = $request->input('first_name');
+      // $payment_detail->last_name = $request->input('last_name');
+      // $payment_detail->card_number = $request->input('card_number');
+      // $payment_detail->cvc = $request->input('cvc');
+      // $payment_detail->street = $request->input('street');
+      // $payment_detail->city = $request->input('city');
+      // $payment_detail->country = $request->input('country');
+      // $payment_detail->postal_code = $request->input('postal_code');
+      // $payment_detail->phone = $request->input('phone');
+      // $payment_detail->passport_number = $request->input('passport_number');
+
+      // return redirect()->route('confirmBooking');
+      return view('hotel.booking_confirmation');
     }
 
     public function getAdminIndex() {
