@@ -10,10 +10,8 @@ use Illuminate\Support\Carbon;
  <div class="container">
 	 <div class="row">
 		 <div class="col-md-12 table1">	
-		 <h1 class="msg">
-    User Reservations
-  </h1>	
-  <table class="table table-striped table-bordered">
+		 <h1 class="msg">Your Reservations</h1>	
+  	<table class="table table-striped table-bordered">
 	  	<thead>
 		    <tr>
 		      <th scope="col">#</th>
