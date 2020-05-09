@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.rmaster')
 
 @section('content')
 <div class="container-fluid">

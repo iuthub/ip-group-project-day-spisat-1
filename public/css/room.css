@@ -92,6 +92,12 @@ html, body {
   .navbar {
     min-height: 75px;
   }
+  .window{
+    margin-top: 150px;
+    font-family: Constantia;
+  font-style: italic;
+  
+  }
 .navbar-brand{
   position: absolute;
   width: 372px;
