@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use App\Room;
 use App\RoomType;
 use App\Reservation;
@@ -58,6 +59,12 @@ class HotelController extends Controller
     }
 
     public function addPaymentDetails(Request $request) {
+      $validation = $this->validate($request, [
+        'phone' => ['required', 'string', 'regex:/^\+998-\d{2}-\d{7}$/'],
+        'first_name' => ['required', 'string', 'min:2', 'max:255'],
+        'last_name' => ['required', 'string', 'min:2', 'max:255'],
+        'message' => ['required', 'string', 'min:5']
+      ]);
       $checkin = $request->input('checkin');
       $checkout = $request->input('checkout');
       $room_id = $request->input('room_id');
@@ -135,14 +142,29 @@ class HotelController extends Controller
     }
 
     public function handleAddRoom(Request $request) {
-      $room = new Room();
-      $room->name = $request->input('name');
-      $room->room_number = $request->input('room_number');
-      $room->main_picture_name = $request->input('picture_name');
-      $room->room_type_id = $request->input('room_type_id');
 
-      $room->save();
+      $validation = Validator::make($request->all(), [
+        'room_number' => 'required|unique:App\Room',
+        'picture_name' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000'
+      ]);
+      // dd($validation->passes());
+      
+     
+      if($validation->passes()){
+        $room = new Room();
+        $room->name = $request->input('name');
+        $room->room_number = $request->input('room_number');
+        // dd($validation);
+        if ($request->has('picture_name')) {
+          $imageName = time() . '.' . $request->file('picture_name')->getClientOriginalExtension();
+          $folder = '/uploads/images/rooms/' . $request->input('room_number');
+          $request->file('picture_name')->move(public_path().$folder, $imageName);
+          $room->main_picture_name = $imageName;
+        }
+        $room->room_type_id = $request->input('room_type_id');
 
+        $room->save();
+      }
       return redirect()->route('adminRooms');
     }
 
