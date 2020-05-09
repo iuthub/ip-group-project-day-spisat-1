@@ -21,7 +21,8 @@
     </head>
     <body>
       @include('partials.admin_navbar')
-      @include('partials.error_alert')
+      @include('partials.error')
+      @include('partials.infobox')
       <div class="container-fluid" >
         <div class="row">
           @include('partials.admin_left_menu')
