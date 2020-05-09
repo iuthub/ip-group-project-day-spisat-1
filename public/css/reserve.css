@@ -145,7 +145,12 @@ html, body {
 font-style: italic;
 font-weight: 800;
 }
-
+.msg{
+  margin-top: 100px;
+  font-family: Constantia;
+  font-style: italic;
+  font-weight: bold;
+  }
 .ftr{
 margin-top: 150px;
 margin-bottom: 0px;
