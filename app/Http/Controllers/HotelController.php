@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
@@ -168,7 +167,7 @@ class HotelController extends Controller
       }
       $room->delete();
 
-      return redirect()->route('adminRooms');
+      return redirect()->route('adminRooms')->with(['success' => 'Room #'.$room->room_number.' has been deleted!']);
     }
 
     public function postEditRoom(Request $request) {
@@ -186,7 +185,8 @@ class HotelController extends Controller
       }
       $validation = Validator::make($request->all(), [
         'room_number' => $roomNumberValidation,
-        'picture_name' => 'image|mimes:jpeg,png,jpg,gif|max:10000'
+        'picture_name' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
+        'name' => 'required'
       ]);      
       if($validation->passes()){
         $room->name = $request->input('name');
@@ -214,7 +214,7 @@ class HotelController extends Controller
           'errors' => $validation->errors()]
         );
       }
-      return redirect()->route('adminRooms')->with(['success' => 'Room #'.$room->room_number.'has been updated!']);
+      return redirect()->route('adminRooms')->with(['success' => 'Room #'.$room->room_number.' has been updated!']);
     }
 
     public function getAdminAddRoom() {
@@ -226,7 +226,9 @@ class HotelController extends Controller
 
       $validation = Validator::make($request->all(), [
         'room_number' => 'required|unique:App\Room',
-        'picture_name' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000'
+        'picture_name' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
+        'name' => 'required',
+        'room_type_id' => 'required'
       ]);      
      
       if($validation->passes()){
@@ -264,22 +266,38 @@ class HotelController extends Controller
 
     public function handleEditRoomType(Request $request) {
       $room_type = RoomType::find($request->input('room_type_id'));
-      $room_type->type = $request->input('type');
-      $room_type->price_per_night = $request->input('price_per_night');
-      $room_type->room_capacity = $request->input('room_capacity');
-      $room_type->area = $request->input('area');
-      $room_type->description = $request->input('description');
+      
+      $validation = Validator::make($request->all(), [
+        'type' => 'required|unique:App\RoomType',
+        'price_per_night' => 'required|numeric',
+        'room_capacity' => 'required|integer',
+        'area' => 'required|integer',
+        'description' => 'required'
+      ]);
 
-      $room_type->save();
+      if($validation->passes()){
+        $room_type->type = $request->input('type');
+        $room_type->price_per_night = $request->input('price_per_night');
+        $room_type->room_capacity = $request->input('room_capacity');
+        $room_type->area = $request->input('area');
+        $room_type->description = $request->input('description');
 
-      return redirect()->route('adminRoomTypes');
+        $room_type->save();
+      } else {
+        return view('admin.edit_room_type', [
+          'room_type' => $room_type,
+          'errors' => $validation->errors()]
+        );
+      }
+
+      return redirect()->route('adminRoomTypes')->with(['success' => 'Room type "'.$room_type->type.'" has been updated!']);
     }
 
     public function deleteRoomType(Request $request) {
       $room_type = RoomType::find($request->input('room_type_id'));
       $room_type->delete();
 
-      return redirect()->route('adminRoomTypes');
+      return redirect()->route('adminRoomTypes')->with(['success' => 'Room type "'.$room_type->type.'" has been deleted!']);
     }
 
     public function getAdminAddRoomType() {
@@ -287,16 +305,30 @@ class HotelController extends Controller
     }
 
     public function handleAddRoomType(Request $request) {
-      $room_type = new RoomType();
-      $room_type->type = $request->input('type');
-      $room_type->price_per_night = $request->input('price_per_night');
-      $room_type->room_capacity = $request->input('room_capacity');
-      $room_type->area = $request->input('area');
-      $room_type->description = $request->input('description');
+      $validation = Validator::make($request->all(), [
+        'type' => 'required|unique:App\RoomType',
+        'price_per_night' => 'required|numeric',
+        'room_capacity' => 'required|integer',
+        'area' => 'required|integer',
+        'description' => 'required'
+      ]);
 
-      $room_type->save();
+      if($validation->passes()){
+        $room_type = new RoomType();
+        $room_type->type = $request->input('type');
+        $room_type->price_per_night = $request->input('price_per_night');
+        $room_type->room_capacity = $request->input('room_capacity');
+        $room_type->area = $request->input('area');
+        $room_type->description = $request->input('description');
 
-      return redirect()->route('adminRoomTypes');
+        $room_type->save();
+      } else {
+        return view('admin.add_room_type', [
+          'errors' => $validation->errors()]
+        );
+      }
+
+      return redirect()->route('adminRoomTypes')->with(['success' => 'Room type "'.$room_type->type.'" has been added!']);
     }
 
     public function getAdminUpdateStatus($id, $status) {
