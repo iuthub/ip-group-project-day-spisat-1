@@ -86,6 +86,9 @@ html, body {
 .fstyle1{
   margin-top: 100px;
 }
+.text-40{
+  font-size: 40px;
+}
   .hdr {
   background-color: rgba(44,64,91);
   }
@@ -170,8 +173,6 @@ html, body {
   top: 400px;
 }
 .photo{
-position: absolute;
-margin-top: 100px;
 width: 588px;
 height: 333px;
 border-radius: 5px;
