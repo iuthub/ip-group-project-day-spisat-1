@@ -134,7 +134,7 @@ Route::group([
     ]);
 
     Route::get('updateStatus/{id}/{status}', [
-      'uses' => 'HotelController@getAdminUpdateStatus',
+      'uses' => 'SendStatusChangeEmailController@send',
       'as' => 'adminUpdateStatus'
     ]);
 });

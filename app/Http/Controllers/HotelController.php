@@ -338,11 +338,4 @@ class HotelController extends Controller
 
       return redirect()->route('adminRoomTypes')->with(['success' => 'Room type "'.$room_type->type.'" has been added!']);
     }
-
-    public function getAdminUpdateStatus($id, $status) {
-      $rsrv = Reservation::find($id);
-      $rsrv->status = $status;
-      $rsrv->save();
-      return response()->json(['code'=>200]);
-    }
 }
