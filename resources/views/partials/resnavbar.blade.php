@@ -1,7 +1,7 @@
 <header class="hdr">
     <nav class="container navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">
-        <img src="./images/Name.svg" alt="The Chemodan" />
+    <a class="navbar-brand" href="{{url('/')}}">
+        <img src="{{asset('images/Name.svg')}}" alt="The Chemodan" />
       </a>
       <div class="collapse navbar-collapse">
   <ul class="navbar-nav ml-auto">

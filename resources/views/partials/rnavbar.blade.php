@@ -1,11 +1,16 @@
 <header class="hdr">
     <nav class="container navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{url('/')}}">
         <img src="./images/Name.svg" alt="The Chemodan" />
       </a>
       <div class="collapse navbar-collapse">
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item active reserve"><a class="nav-link" href="{{ route('reservations') }}">Reservations</a></li>
+    @guest 
+    @else
+      <li class="nav-item active reserve">
+        <a class="nav-link" href="{{ route('reservations') }}">Reservations</a>
+      </li>
+    @endguest
     <li  class="nav-item active contact"><a class="nav-link" href="{{ route('contactUs') }}">Contact us</a></li>
     @guest
      
