@@ -24,16 +24,20 @@
         <dl class="row">
           <dt class="col-sm-3">Status</dt>
           <dd class="col-sm-9">
-            <div class="btn-group dropright">
-              <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                <span id="status"></span>
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#" data-value="0">New</a>
-                <a class="dropdown-item" href="#" data-value="1">Cancelled</a>
-                <a class="dropdown-item" href="#" data-value="2">Confirmed</a>
+            @if($isAdminModal === true)
+              <div class="btn-group dropright">
+                <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                  <span id="status"></span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#" data-value="0">New</a>
+                  <a class="dropdown-item" href="#" data-value="1">Cancelled</a>
+                  <a class="dropdown-item" href="#" data-value="2">Confirmed</a>
+                </div>
               </div>
-            </div>    
+            @else
+              <span id="status"></span>
+            @endif
           </dd>
         </dl>
         <dl class="row">
@@ -64,7 +68,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button data-dismiss="modal" id="submit" type="button" class="btn btn-primary" data-id="" data-status-value="">Save changes</button>
+        @if($isAdminModal === true)
+          <button data-dismiss="modal" id="submit" type="button" class="btn btn-primary" data-id="" data-status-value="">Save changes</button>
+        @endif
       </div>
     </div>
   </div>

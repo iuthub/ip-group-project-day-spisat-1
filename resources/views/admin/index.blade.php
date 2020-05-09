@@ -96,6 +96,9 @@ use Illuminate\Support\Carbon;
 	</table>
 </div>
 @component('partials.modal_rsrv')
+	@slot('isAdminModal')
+	true
+	@endslot
 @endcomponent
 
 @endsection

@@ -48,6 +48,16 @@ Route::post('/payment_details/add', [
   'as' => 'addPaymentDetails'
 ]);
 
+Route::post('/payment_details/validate', [
+  'uses' => 'HotelController@validatePaymentDetails',
+  'as' => 'validatePaymentDetails'
+]);
+
+Route::get('/confirm_booking/{id}', [
+  'uses' => 'HotelController@confirmBooking',
+  'as' => 'confirmBooking'
+]);
+
 Route::group([
   'prefix' => 'admin',
   'middleware' => ['auth', 'admin']
@@ -68,9 +78,59 @@ Route::group([
       'as' => 'adminRooms'
     ]);
 
+    Route::post('/delete_rooms', [
+      'uses' => 'HotelController@deleteRoom',
+      'as' => 'deleteRoom'
+    ]);
+
+    Route::post('/edit_room', [
+      'uses' => 'HotelController@postEditRoom',
+      'as' => 'editRoom'
+    ]);
+
+    Route::post('/handle_edit_room', [
+      'uses' => 'HotelController@handleEditRoom',
+      'as' => 'handleEditRoom'
+    ]);
+
     Route::get('/add_room', [
       'uses' => 'HotelController@getAdminAddRoom',
       'as' => 'adminAddRoom'
+    ]);
+
+    Route::post('/handle_add_room', [
+      'uses' => 'HotelController@handleAddRoom',
+      'as' => 'handleAddRoom'
+    ]);
+
+    Route::get('/room_types', [
+      'uses' => 'HotelController@getAdminRoomTypes',
+      'as' => 'adminRoomTypes'
+    ]);
+
+    Route::post('/edit_room_type', [
+      'uses' => 'HotelController@postEditRoomType',
+      'as' => 'editRoomType'
+    ]);
+
+    Route::post('/handle_edit_room_type', [
+      'uses' => 'HotelController@handleEditRoomType',
+      'as' => 'handleEditRoomType'
+    ]);
+
+    Route::post('/delete_room_type', [
+      'uses' => 'HotelController@deleteRoomType',
+      'as' => 'deleteRoomType'
+    ]);
+
+    Route::get('/add_room_type', [
+      'uses' => 'HotelController@getAdminAddRoomType',
+      'as' => 'adminAddRoomType'
+    ]);
+
+    Route::post('/handle_add_room_type', [
+      'uses' => 'HotelController@handleAddRoomType',
+      'as' => 'handleAddRoomType'
     ]);
 
     Route::get('updateStatus/{id}/{status}', [
