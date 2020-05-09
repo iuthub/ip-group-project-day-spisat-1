@@ -6,8 +6,8 @@ use Illuminate\Support\Carbon;
 ?>
 @section('content')
 
-<div class="col-10">
-  	<h1>Admin: Reservations</h1>
+<div class="col-md-9">
+  	<h1 class="titleName">Admin: Reservations</h1>
   
     <table class="table">
 	  	<thead>

@@ -1,5 +1,5 @@
 @extends('layouts.resmaster')
-<?php 
+<?php  
 use App\ReservationStatus;
 use App\PaymentDetail;
 use Illuminate\Support\Carbon;

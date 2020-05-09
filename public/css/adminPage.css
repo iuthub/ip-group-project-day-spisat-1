@@ -67,29 +67,8 @@ html, body {
 .pageName{
   margin-top: 75px;
 }
-.fstyle{
-  position: relative;
-  font-family: Constantia;
-  font-size: 25px;
-  font-style: italic;
-  font-weight: bold;
-  color: black;
-}
-.mstyle{
-  position: relative;
-  font-family: Constantia;
-  font-size: 16.5px;
-  font-style: italic;
-  font-weight: normal;
-  color: black;
-}
-.fstyle1{
-  margin-top: 100px;
-}
-.text-40{
-  font-size: 40px;
-}
-  .hdr {
+
+  .ahdr {
   background-color: rgba(44,64,91);
   }
   .navbar {
@@ -112,7 +91,7 @@ html, body {
   position: absolute;
   width: 143.18px;
   height: 42.97px;
-  left: 691px;
+  left: 960px;
   top: 18px;
   font-family: Constantia;
   font-style: normal;
@@ -121,11 +100,11 @@ html, body {
   line-height: 24px;
   color:#FFFFFF;
 }
-.contact{
+.lgout{
   position: absolute;
   width: 124.9px;
   height: 46.28px;
-  left: 829px;
+  left: 1100px;
   top: 18px;
   font-family: Constantia;
   font-style: normal;
@@ -134,86 +113,28 @@ html, body {
   line-height: 24px;
   color: #FFFFFF;
 }
-.icon{
-  position: absolute;
-  width: 34px;
-  height: 33px;
-  left: 1130px; 
-  top: 13px;
-  color: #FFFFFF;
-}    
-.join{
-    position: absolute;
-    left: 967px;
-    top: 15px;    
-    font-family: Constantia;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 24px;            
-  }    
-.signin{      
-  position: absolute;
-  left: 1039px;
-  top: 15px;      
+.ltmenu{
   font-family: Constantia;
-  font-style: normal;
-  font-weight: normal;
+  font-style: italic;
+  font-weight: 800;
   font-size: 20px;
-  line-height: 24px;
+  color: black;
 }
-.slash{
-  position: absolute;
-  width: 50px;
-  height: 0px;
-  left: 1029px;
-  top: 10px;
-}  
-.class1{
-  top: 400px;
-}
-.photo{
-width: 588px;
-height: 333px;
-border-radius: 5px;
-}  
-.btn1, .btn2{
-  margin-top: 60px;
-}
-.class2{
 
- margin-top: 100px;
-}
-.btn3, .btn4{
-  margin-top: 60px;
-}
-.double-photo{
-  position: absolute;
-  margin-top: 25px;
-  width: 588px;
-height: 350px;
-border-radius: 5px;
-
-}
-.modal{
+.table{
+  margin-top: 100px;
   font-family: Constantia;
 font-style: italic;
+font-weight: 800;
 }
 
-.ftr{
-margin-top: 250px;
-margin-bottom: 0px;
-height: 150px;
-padding-top: 30px;
-font-family: Constantia;
-font-style: italic;
-text-align: left;
-color: #FFFFFF;
+.titleName{
+  
+  font-family: Constantia;
+  font-style: italic;
+  font-weight: bold;
 }
-.page-footer{
-background-color: rgba(44,64,91);
-min-height: 100px;
-} 
+ 
 .a{
 color: #FFFFFF;
 }

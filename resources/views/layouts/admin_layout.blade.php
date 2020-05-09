@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ asset('css/adminPage.css') }}">
         <title>The Chemodan|Admin</title>
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -20,15 +21,19 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
+
       @include('partials.admin_navbar')
+
       @include('partials.error')
+
       @include('partials.infobox')
       <div class="container-fluid" >
         <div class="row">
           @include('partials.admin_left_menu')
 
           @yield('content')
+
         </div>
       </div>
     </body>
-</html>
+</html> 
