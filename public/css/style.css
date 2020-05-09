@@ -145,6 +145,7 @@
     .searchingrooms{
       max-height: 100px;
       border-radius: 8.5px 8.5px 8.5px 8.5px;
+      padding: 10px 40px;
     }  
    .booking{
     margin-top: 550px;      

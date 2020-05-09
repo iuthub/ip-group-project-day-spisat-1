@@ -19,9 +19,11 @@
         <!-- Styles -->
         <link rel="shortcut icon" href="{{ asset('/img/travelling.png') }}">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/room.css') }}" rel="stylesheet">
     </head>
     <body>
       @include('partials.navbar')     
+      @include('hotel.dates_picker')     
 
       @yield('content')
 
