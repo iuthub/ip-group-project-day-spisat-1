@@ -26,7 +26,7 @@
 		      <td>{{ $room->name }}</td>
 		      <td>{{ $room->room_number }}</td>
 		      <td>{{ $room->roomType->type }}</td>
-          <td>{{ $room->main_picture_name }}</td>
+          <td><img src="{{URL::asset('/uploads/images/rooms/' . $room->main_picture_name)}}" style="max-width: 200px"></td>
           <td>
             <form method="post" action="{{ route('editRoom') }}">
               @csrf
