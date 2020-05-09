@@ -1,15 +1,12 @@
-<header class="bg-semi-transparent">
+<header class="hdr">
     <nav class="container navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="{{ url('/') }}">
+    <a class="navbar-brand" href="#">
         <img src="./images/Name.svg" alt="The Chemodan" />
       </a>
       <div class="collapse navbar-collapse">
   <ul class="navbar-nav ml-auto">
-    @guest 
-    @else
-      <li class="nav-item active reserve"><a class="nav-link" href="{{ route('reservations') }}">Reservations</a></li>
-    @endguest
-    <li  class="nav-item active contact"><a class="nav-link" href="{{ route('contactUs') }}">Contact us</a></li>
+    <li class="nav-item active reserve"><a class="nav-link" href="{{ route('contactUs') }}">Contact Us</a></li>
+    <li  class="nav-item active contact"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
     @guest
      
         @if (Route::has('register'))
@@ -53,14 +50,9 @@
         </li>
     @endguest
   </ul>
-</div>
-</nav>
-</header>
-<script>
-  $(document).ready(function(){
-    $('.dropdown-toggle').dropdown()
-  }); 
-</script>
+  </div>
+  </nav>
+  </header>
 
 
   

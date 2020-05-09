@@ -67,9 +67,8 @@ class HotelController extends Controller
     public function addPaymentDetails(Request $request) {
       $validation = $this->validate($request, [
         'phone' => ['required', 'string', 'regex:/^\+998-\d{2}-\d{7}$/'],
-        'first_name' => ['required', 'string', 'min:2', 'max:255'],
-        'last_name' => ['required', 'string', 'min:2', 'max:255'],
-        'message' => ['required', 'string', 'min:5']
+        'first_name' => ['required', 'string', 'min:2', 'max:128'],
+        'last_name' => ['required', 'string', 'min:2', 'max:128']
       ]);
       $checkin = $request->input('checkin');
       $checkout = $request->input('checkout');

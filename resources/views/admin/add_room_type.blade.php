@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
-  <h1>
+<div class="main">
+  <h1 class="titleName">
     Edit room type
   </h1>
   <form method="post" action="{{ route('handleAddRoomType') }}">

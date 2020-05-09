@@ -1,16 +1,17 @@
-@extends('layouts.master')
-<?php 
+@extends('layouts.resmaster')
+<?php  
 use App\ReservationStatus;
 use App\PaymentDetail;
 use Illuminate\Support\Carbon;
 ?>
 @section('content')
+  
 
-<div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
-  <h1>
-    User reservations
-  </h1>
-  <table class="table">
+ <div class="container">
+	 <div class="row">
+		 <div class="col-md-12 table1">	
+		 <h1 class="msg">Your Reservations</h1>	
+  	<table class="table table-striped table-bordered">
 	  	<thead>
 		    <tr>
 		      <th scope="col">#</th>
@@ -20,7 +21,7 @@ use Illuminate\Support\Carbon;
 		      <th scope="col">Check-out</th>
 		      <th scope="col">Status</th>
 		      <th scope="col"># of days</th>
-		      <th scope="col">Total cost</th>
+		      <th scope="col">Total cost($)</th>
 		      <th scope="col"></th>
 		    </tr>
 	  	</thead>
@@ -85,7 +86,7 @@ use Illuminate\Support\Carbon;
 					data-phone="{{ $phone }}"
 					data-passport="{{ $passport }}"
 					type="button" 
-					class="btn btn-primary" 
+					class="btn btn-success" 
 					data-toggle="modal" 
 					data-target="#reservationModal">
 		  				View Details
@@ -95,6 +96,11 @@ use Illuminate\Support\Carbon;
 	    @endforeach
 	  </tbody>
 	</table>
+		 </div>
+	 </div>
+ </div>
+<div class="main">
+  
 </div>
 @component('partials.modal_rsrv')
 	@slot('isAdminModal')

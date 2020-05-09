@@ -1,5 +1,9 @@
-<div class="col-2">
-  <a href="{{ route('adminReservations') }}"><button>Reservations</button></a>
-  <a href="{{ route('adminRooms') }}"><button>Rooms</button></a>
-  <a href="{{ route('adminRoomTypes') }}"><button>Room types</button></a>
-</div>
+<div class="col-md-2">
+  <ul class="ltmenu">
+  <a href="{{ route('adminReservations') }}">Reservations</a><br>
+  <br>
+  <a href="{{ route('adminRooms') }}">Rooms</a><br>
+  <br>
+  <a href="{{ route('adminRoomTypes') }}">Room types</a><br>
+</ul>
+</div> 

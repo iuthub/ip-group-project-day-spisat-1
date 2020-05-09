@@ -1,16 +1,26 @@
-<div style="border: 1px solid black; margin: 0 40px;">
-  <ul style="display: inline-block">
-    <li style="display: inline"><a href="{{ route('adminReservations') }}">Reservations</a></li>
+<header class="ahdr">
+  <nav class="container navbar navbar-expand-lg navbar-dark">
+    <a href="#" class="navbar-brand">
+      <img src="{{ asset('images/Name.svg') }}" alt="The Chemodan" />
+    </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+      <li style="display: inline">
+      <a class="reserve" href="{{ route('adminReservations') }}">Reservations</a></li>
     <li style="display: inline">
-      <a href="{{ route('logout') }}"
+      <a class="lgout" href="{{ route('logout') }}"
         onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
           {{ __('Logout') }}
       </a>
     </li>
-  </ul>
-
-  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      </ul>
+    </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
       @csrf
-  </form>
-</div>
+  </form> 
+
+  </nav>
+</header>
+
+

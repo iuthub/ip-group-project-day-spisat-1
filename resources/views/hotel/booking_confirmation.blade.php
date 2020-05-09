@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.cmaster')
 
 @section('content')
 
@@ -10,8 +10,10 @@
 	<h1>{{ $messages->first('email', ':message') }}</h1>
 	<h1>{{ $messages->first('message', ':message') }}</h1>
 @endif
+<div class="container-fluid">
+  
 
-<div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
+<div class="offset-md-3 col-md-6 window">
   <h2>Thank you for your order!</h2>
   <h3>Order #: {{ $reservation->id }} </h3>
   <dl class="row">
@@ -31,5 +33,10 @@
     <dd class="col-sm-9">{{ $reservation->room->roomType->type . " - " . $reservation->room->name }}</dd>
   </dl>
 </div>
-
+</div>
+<script>
+  $(document).ready(function(){
+    $('.dropdown-toggle').dropdown()
+  }); 
+</script>
 @endsection

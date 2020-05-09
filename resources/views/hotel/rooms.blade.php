@@ -1,27 +1,90 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
-  <h1>
-    Rooms list
-  </h1>
-  <ul>
-  	@foreach ($rooms as $room)
-  	<li>
-  		<p>{{ $room->roomType->type }} - {{ $room->name }}</p>
-  		<p>{{ $room->main_picture_name }}</p>
-  		<p>{{ $room->roomType->price_per_night }}</p>
-  	</li>
-    <form method="post" action="{{ route('paymentDetails') }}">
-      @csrf
-      <input type="text" hidden value="{{ $checkin }}" name="checkin">
-      <input type="text" hidden value="{{ $checkout }}" name="checkout">
-      <input type="text" hidden value="{{ $number_of_guests }}" name="number_of_guests">
-      <input type="text" hidden value="{{ $room->id }}" name="room_id">
-      <input type="submit" value="order">
-    </form>
-  	@endforeach
-  </ul>
-</div>
-
+  
+  <?php
+  $i = 0;
+  ?>
+  	@foreach ($rooms as $key=>$room)
+    <?php
+      $oddOrEven = ($key % 2) === 0;
+    ?>
+    @if($oddOrEven)
+      <div class="container" style="margin-top: 100px">
+       <div class="row">
+        <div class="col-md-6">
+          <img class="photo" src="{{URL::asset('/uploads/images/rooms/' . $room->main_picture_name)}}">
+        </div>
+        <div class="offset-md-1 col-md-4">
+           @component('hotel.rooms_components.description')
+            @slot('id')
+              {{ $room->id }}
+            @endslot
+            @slot('name')
+              {{ $room->roomType->type . ' ' . $room->name }}
+            @endslot
+            @slot('price')
+              {{ $room->roomType->price_per_night }}
+            @endslot
+            @slot('checkin')
+              {{ $checkin }}
+            @endslot
+            @slot('checkout')
+              {{ $checkout }}
+            @endslot
+            @slot('number_of_guests')
+              {{ $number_of_guests }}
+            @endslot
+            @slot('description')
+              {{ $room->roomType->description }}
+            @endslot
+            @slot('image')
+              {{URL::asset('/uploads/images/rooms/' . $room->main_picture_name)}}
+            @endslot
+           @endcomponent
+         
+        </div>
+       </div>
+      </div>
+    @else
+      <div class="container" style="margin-top: 100px">
+       <div class="row">
+        
+        <div class="offset-md-1 col-md-4">
+         
+           @component('hotel.rooms_components.description')
+            @slot('id')
+              {{ $room->id }}
+            @endslot
+            @slot('name')
+              {{ $room->roomType->type . ' ' . $room->name }}
+            @endslot
+            @slot('price')
+              {{ $room->roomType->price_per_night }}
+            @endslot
+            @slot('checkin')
+              {{ $checkin }}
+            @endslot
+            @slot('checkout')
+              {{ $checkout }}
+            @endslot
+            @slot('number_of_guests')
+              {{ $number_of_guests }}
+            @endslot
+            @slot('description')
+              {{ $room->roomType->description }}
+            @endslot
+            @slot('image')
+              {{URL::asset('/uploads/images/rooms/' . $room->main_picture_name)}}
+            @endslot
+           @endcomponent
+         
+        </div>
+        <div class="col-md-6">
+          <img class="photo" src="{{URL::asset('/uploads/images/rooms/' . $room->main_picture_name)}}">
+        </div>
+       </div>
+      </div>
+    @endif
+ 	@endforeach
 @endsection

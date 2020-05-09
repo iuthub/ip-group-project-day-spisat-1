@@ -2,8 +2,9 @@
 
 @section('content')
 
-<div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
-  <h1>
+
+<div class="col-md-9">
+    <h1 class="titleName">
     Admin rooms
   </h1>
   <table class="table">
@@ -15,7 +16,7 @@
 		      <th scope="col">Type</th>
           <th scope="col">Main picture name</th>
           <th scope="col">Edit</th>
-          <th scope="col">Delete</th>
+          <th scope="col">Delete</th> 
 		    </tr>
 	  	</thead>
       <tbody>
@@ -46,6 +47,10 @@
       @endforeach
       </tbody>
     </table>
+  </div>
+
+
+ 
   <a href="{{ route('adminAddRoom') }}"><button>Add room</button></a>
 </div>
 
