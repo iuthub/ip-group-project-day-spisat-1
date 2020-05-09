@@ -146,7 +146,10 @@ class HotelController extends Controller
 
     public function getAdminIndex() {
       $reservations = Reservation::all();
-      return view('admin.index', ['reservations' => $reservations]);
+      return view('admin.index', [
+        'reservations' => $reservations,
+        'isAdminModal' => true]
+      );
     }
 
     public function getAdminReservations() {
