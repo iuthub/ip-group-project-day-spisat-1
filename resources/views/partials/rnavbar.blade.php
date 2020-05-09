@@ -1,7 +1,7 @@
 <header class="hdr">
     <nav class="container navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="{{url('/')}}">
-        <img src="./images/Name.svg" alt="The Chemodan" />
+        <img src="{{asset('images/Name.svg')}}" alt="The Chemodan" />
       </a>
       <div class="collapse navbar-collapse">
   <ul class="navbar-nav ml-auto">
@@ -22,7 +22,7 @@
             </li>
         @endif
           <li class="slash">
-            <img src="./images/Line 6.svg" alt="Line">
+            <img src="{{asset('images/Line 6.svg')}}" alt="Line">
           </li>
 
           <li class="signin">
@@ -32,7 +32,7 @@
          </li>
          <li class="icon">
             <a class="nav-link disabled" tabindex="-1" aria-disabled="true">
-              <img src="./images/social-media 1.svg" height="30" alt="" />
+              <img src="{{asset('images/social-media 1.svg')}}" height="30" alt="" />
             </a>
           </li>
     @else
