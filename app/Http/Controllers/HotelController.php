@@ -252,6 +252,53 @@ class HotelController extends Controller
       return redirect()->route('adminRooms');
     }
 
+    public function getAdminRoomTypes() {
+      $room_types = RoomType::all();
+      return view('admin.room_types', ['room_types' => $room_types]);
+    }
+
+    public function postEditRoomType(Request $request) {
+      $room_type = RoomType::find($request->input('room_type_id'));
+      return view('admin.edit_room_type', ['room_type' => $room_type]);
+    }
+
+    public function handleEditRoomType(Request $request) {
+      $room_type = RoomType::find($request->input('room_type_id'));
+      $room_type->type = $request->input('type');
+      $room_type->price_per_night = $request->input('price_per_night');
+      $room_type->room_capacity = $request->input('room_capacity');
+      $room_type->area = $request->input('area');
+      $room_type->description = $request->input('description');
+
+      $room_type->save();
+
+      return redirect()->route('adminRoomTypes');
+    }
+
+    public function deleteRoomType(Request $request) {
+      $room_type = RoomType::find($request->input('room_type_id'));
+      $room_type->delete();
+
+      return redirect()->route('adminRoomTypes');
+    }
+
+    public function getAdminAddRoomType() {
+      return view('admin.add_room_type');
+    }
+
+    public function handleAddRoomType(Request $request) {
+      $room_type = new RoomType();
+      $room_type->type = $request->input('type');
+      $room_type->price_per_night = $request->input('price_per_night');
+      $room_type->room_capacity = $request->input('room_capacity');
+      $room_type->area = $request->input('area');
+      $room_type->description = $request->input('description');
+
+      $room_type->save();
+
+      return redirect()->route('adminRoomTypes');
+    }
+
     public function getAdminUpdateStatus($id, $status) {
       $rsrv = Reservation::find($id);
       $rsrv->status = $status;

@@ -103,6 +103,36 @@ Route::group([
       'as' => 'handleAddRoom'
     ]);
 
+    Route::get('/room_types', [
+      'uses' => 'HotelController@getAdminRoomTypes',
+      'as' => 'adminRoomTypes'
+    ]);
+
+    Route::post('/edit_room_type', [
+      'uses' => 'HotelController@postEditRoomType',
+      'as' => 'editRoomType'
+    ]);
+
+    Route::post('/handle_edit_room_type', [
+      'uses' => 'HotelController@handleEditRoomType',
+      'as' => 'handleEditRoomType'
+    ]);
+
+    Route::post('/delete_room_type', [
+      'uses' => 'HotelController@deleteRoomType',
+      'as' => 'deleteRoomType'
+    ]);
+
+    Route::get('/add_room_type', [
+      'uses' => 'HotelController@getAdminAddRoomType',
+      'as' => 'adminAddRoomType'
+    ]);
+
+    Route::post('/handle_add_room_type', [
+      'uses' => 'HotelController@handleAddRoomType',
+      'as' => 'handleAddRoomType'
+    ]);
+
     Route::get('updateStatus/{id}/{status}', [
       'uses' => 'HotelController@getAdminUpdateStatus',
       'as' => 'adminUpdateStatus'
