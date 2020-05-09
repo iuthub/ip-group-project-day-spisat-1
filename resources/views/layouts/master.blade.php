@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/style.css">
         <title>Hotel</title>
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -20,10 +21,10 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-      @include('partials.navbar')
-      
-      @include('partials.left_menu')
+      @include('partials.navbar')     
 
       @yield('content')
+
+      @include('partials.footer')
     </body>
 </html>
