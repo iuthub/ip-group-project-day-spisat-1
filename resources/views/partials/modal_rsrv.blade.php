@@ -93,7 +93,7 @@
       $("#passport").html($(e.relatedTarget).data('passport'));
       $("#submit").attr('data-id', $(e.relatedTarget).data('id'));
 
-      addBtnClass(".btn-group .btn", "btn", $(e.relatedTarget)[0].getAttribute('data-status'), $(e.relatedTarget).data('status-value'));
+      addBtnClass(".btn-group .btn", "btn", $(e.relatedTarget)[0].getAttribute('data-status'), $(e.relatedTarget).attr('data-status-value'));
     });
   });
 
@@ -130,8 +130,8 @@
   $("#submit").click(function() {
     $("#reservationModal").modal("hide"); 
     
-    let id  = $(this).data("id");
-    let status_value = $(this).data("status-value");
+    let id  = $(this).attr("data-id");
+    let status_value = $(this).attr("data-status-value");
     let status_name = $("#status").text();
     let _url = '/admin/updateStatus/' + id + '/' + status_value;
 
