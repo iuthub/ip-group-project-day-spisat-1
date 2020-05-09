@@ -29,10 +29,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="reserve">
-            <a class="nav-link active" href="./reservations">Reservations</a>
+            <a class="nav-link active" href="{{URL::route('ureservations')}}">Reservations</a>
           </li>
           <li class="contact">
-            <a class="nav-link active" href="./contactus">Contact us</a>
+            <a class="nav-link active" href="{{URL::route('ucontactus')}}">Contact us</a>
           </li>
           <li class="join">
             <button type="submit" class="btn btn-success">Join</button>
@@ -97,7 +97,7 @@
 
           <div class="col">
             <div class="checkrooms">
-              <form action="./rooms">
+              <form action="{{URL::route('urooms')}}">
                 <button type="submit" class="btn btn-success active">Check Availability</button>
               </form>
             </div>
