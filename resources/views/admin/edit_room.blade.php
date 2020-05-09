@@ -6,17 +6,20 @@
   <h1>
     Edit room
   </h1>
-  <form method="post" action="{{ route('handleEditRoom') }}">
+  <form method="post" action="{{ route('handleEditRoom') }}" enctype="multipart/form-data">
     @csrf
+    <p>
+      Main picture: 
+      <img src="{{URL::asset('/uploads/images/rooms/' . $room->main_picture_name)}}" style="max-width: 700px">
+      <input type="file" name="picture_name" value="{{ $room->main_picture_name }}">
+    </p>
     <p>
       Room name: <input type="text" name="name" value="{{ $room->name }}">
     </p>
     <p>
       Room number: <input type="text" name="room_number" value="{{ $room->room_number }}">
     </p>
-    <p>
-      Main picture name: <input type="text" name="picture_name" value="{{ $room->main_picture_name }}">
-    </p>
+    
     <p>
       Room type:
       <select name="room_type_id">
