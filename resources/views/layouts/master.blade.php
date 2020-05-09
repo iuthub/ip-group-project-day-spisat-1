@@ -28,5 +28,6 @@
       @yield('content')
 
       @include('partials.footer')
+      @include('partials.modal_rooms')
     </body>
 </html>

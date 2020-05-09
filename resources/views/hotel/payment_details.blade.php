@@ -2,28 +2,68 @@
 
 @section('content')
 
-<div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
-  <form method="post" action="{{ route('addPaymentDetails') }}">
-    @csrf
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-3 col-md-6 window">
+          <form method="post" action="{{ route('addPaymentDetails') }}">
+            @csrf
+            <p>
+                <label>First name:</label> 
+                <input type="text" class="form-control" name="first_name" value="{{ Auth::user()->first_name }}"/>
+                <span class="error" style="color: red;  font-size: 9px"></span>
+            </p>
+            <p><label>Last name:</label> 
+                <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}"/>
+                <span class="error" style="color: red;  font-size: 9px"></span>
+            </p>
+            <p>
+                <label>Card number:</label> 
+                <input type="text" class="form-control" name="card_number"/>
+                <span class="error" style="color: red;  font-size: 9px"></span>
+            </p>
+            <p>
+                <label>CVC: </label>
+                <input type="text" class="form-control" name="cvc"/>
+                <span class="error" style="color: red;  font-size: 9px"></span></p>
+            <p>
+                <label>Street:</label> 
+                <input type="text" class="form-control" name="street"/>
+                <span class="error" style="color: red;  font-size: 9px"></span>
+            </p>
+            <p>
+                <label>City:</label> 
+                <input type="text" class="form-control" name="city"/>
+                <span class="error" style="color: red;  font-size: 9px"></span>
+            </p>
+            <p>
+                <label>Country:</label> 
+                <input type="text" class="form-control" name="country"/>
+                <span class="error" style="color: red;  font-size: 9px"></span>
+            </p>
+            <p>
+                <label>Postal code:</label> 
+                <input type="text" class="form-control" name="postal_code"/>
+                <span class="error" style="color: red;  font-size: 9px"></span></p>
+            <p>
+                <label>Phone:</label> 
+                <input type="text" class="form-control" name="phone"/>
+                <span class="error" style="color: red;  font-size: 9px"></span>
+            </p>
+            <p>
+                <label>Passport number:</label> 
+                <input type="text" class="form-control" name="passport_number"/>
+                <span class="error" style="color: red;  font-size: 9px"></span>
+            </p>
 
-    <p>First name: <input type="text" name="first_name" value="{{ Auth::user()->first_name }}"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>Last name: <input type="text" name="last_name" value="{{ Auth::user()->last_name }}"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>Card number: <input type="text" name="card_number"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>CVC: <input type="text" name="cvc"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>Street: <input type="text" name="street"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>City: <input type="text" name="city"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>Country: <input type="text" name="country"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>Postal code: <input type="text" name="postal_code"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>Phone: <input type="text" name="phone"/><span class="error" style="color: red;  font-size: 9px"></span></p>
-    <p>Passport number: <input type="text" name="passport_number"/><span class="error" style="color: red;  font-size: 9px"></span></p>
+            <input type="hidden" name="checkin" value="{{ $checkin }}">
+            <input type="hidden" name="checkout" value="{{ $checkout }}">
+            <input type="hidden" name="room_id" value="{{ $room_id }}">
+            <input type="hidden" name="number_of_guests" value="{{ $number_of_guests }}">
 
-    <input type="hidden" name="checkin" value="{{ $checkin }}">
-    <input type="hidden" name="checkout" value="{{ $checkout }}">
-    <input type="hidden" name="room_id" value="{{ $room_id }}">
-    <input type="hidden" name="number_of_guests" value="{{ $number_of_guests }}">
-
-    <input type="Submit" class="btn-submit" value="Book" />
-  </form>
+            <input type="Submit" class="btn-submit btn btn-success" value="Book" />
+          </form>
+        </div>
+    </div>
 </div>
 <script>
     $(document).ready(function() {
@@ -37,6 +77,7 @@
         const required_msg = "Required";
 
         $(".btn-submit").click(function(e){
+
             $(".error").css('display', 'none');
             let isOkey = true;
 
@@ -106,6 +147,7 @@
             }
             
             if(isOkey === true) {
+                console.log('ds');
                 $.ajax({
                     url: "{{ route('addPaymentDetails') }}",
                     type:'POST',

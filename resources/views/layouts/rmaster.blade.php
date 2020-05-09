@@ -19,6 +19,7 @@
         <!-- Styles -->
         <link rel="shortcut icon" href="{{ asset('/img/travelling.png') }}">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/room.css') }}" rel="stylesheet">
     </head>
     <body>
       @include('partials.rnavbar')     
@@ -26,6 +27,6 @@
       @yield('content')
 
       @include('partials.footer')
-      @include('partials.modal_rooms')
+      
     </body>
 </html>

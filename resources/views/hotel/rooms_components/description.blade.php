@@ -17,5 +17,5 @@
 		data-target="#roomsModal">
 				More
 	</button>
-  <input type="submit" value="Book" class="btn btn-success">
+  <input type="submit" value="Select room" class="btn btn-success">
 </form>
