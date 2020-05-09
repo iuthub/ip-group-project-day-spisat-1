@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.cmaster')
 
 @section('content')
 
@@ -11,15 +11,22 @@
 	<h1>{{ $messages->first('message', ':message') }}</h1>
 @endif
 
-<div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
-  <form method="post" action="{{ route('sendEmail') }}">
+<div class="main">
+<div class="container-fluid contactUs">
+  <div class="row">
+    <div class="offset-md-3 col-md-6 window">
+    <form method="post" action="{{ route('sendEmail') }}">
     @csrf
-
-    <p>Full name: <input type="text" required name="name"></p>
-    <p>Email: <input type="email" required name="email"></p>
-    <p>Feedback: <textarea required name="message"></textarea></p>
-    <input type="submit">
+    <p class="text">In case if you want to contact us, you can send your message in the form provided below.</p><br>
+    <p>Full Name: <input type="text" class="form-control" required name="name"></p>
+    <p>Email: <input type="email" class="form-control"required name="email" placeholder="Enter email"></p>
+    <small id="safemsg" class="form-text text-muted">We'll never share your email address with anyone else.</small>
+    <p>Message: <textarea class="form-control" required name="message"></textarea></p>
+    <button type="submit" class="btn btn-success">Send Message</button>
   </form>
+    </div>
+  </div>
+</div>
 </div>
 
 @endsection
