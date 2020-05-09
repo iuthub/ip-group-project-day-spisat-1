@@ -64,10 +64,13 @@
 html, body {
   
 }
+.pageName{
+  margin-top: 75px;
+}
 .fstyle{
   position: relative;
   font-family: Constantia;
-  font-size: 40px;
+  font-size: 25px;
   font-style: italic;
   font-weight: bold;
   color: black;
@@ -75,7 +78,7 @@ html, body {
 .mstyle{
   position: relative;
   font-family: Constantia;
-  font-size: 20.5px;
+  font-size: 16.5px;
   font-style: italic;
   font-weight: normal;
   color: black;
@@ -157,7 +160,7 @@ html, body {
   left: 1029px;
   top: 10px;
 }  
-.single{
+.class1{
   top: 400px;
 }
 .photo{
@@ -170,8 +173,8 @@ border-radius: 5px;
 .btn1, .btn2{
   margin-top: 60px;
 }
-.double{
-  position: relative;
+.class2{
+
  margin-top: 100px;
 }
 .btn3, .btn4{
@@ -179,6 +182,7 @@ border-radius: 5px;
 }
 .double-photo{
   position: absolute;
+  margin-top: 25px;
   width: 588px;
 height: 350px;
 border-radius: 5px;
@@ -190,7 +194,7 @@ font-style: italic;
 }
 
 .ftr{
-margin-top: 150px;
+margin-top: 250px;
 margin-bottom: 0px;
 height: 150px;
 padding-top: 30px;
