@@ -30,10 +30,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="reserve">
-            <a class="nav-link active" href="./main_page.html">Home</a>
+            <a class="nav-link active" href="./main_page">Home</a>
           </li>
           <li class="contact">
-            <a class="nav-link active" href="./contactus.html">Contact us</a>
+            <a class="nav-link active" href="./contactus">Contact us</a>
           </li>
           <li class="join">
             <button type="submit" class="btn btn-success">Join</button>
@@ -127,7 +127,7 @@
     <div class="container-fluid ftr text-center text-md-left">
       <div class=" offset-md-1 col-md-2 ">
         <ul>
-          <a href="">Reservation</a><br>
+          <a href="">Home</a><br>
           <a href="">Contact Us</a>
           <br>
           <br>
