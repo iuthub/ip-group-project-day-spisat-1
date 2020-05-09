@@ -114,6 +114,11 @@ class HotelController extends Controller
 
     public function deleteRoom(Request $request) {
       $room = Room::find($request->input('room_id'));
+      $folder = public_path().'/uploads/images/rooms/';
+      $imageName = $room->main_picture_name;
+      if (File::exists($folder.'/'.$imageName)) {
+          File::delete($folder.'/'.$imageName);
+      }
       $room->delete();
 
       return redirect()->route('adminRooms');
@@ -162,7 +167,7 @@ class HotelController extends Controller
           'errors' => $validation->errors()]
         );
       }
-      return redirect()->route('adminRooms')->with(['info' => 'Room #'.$room->room_number.'has been updated!']);
+      return redirect()->route('adminRooms')->with(['success' => 'Room #'.$room->room_number.'has been updated!']);
     }
 
     public function getAdminAddRoom() {
