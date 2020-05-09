@@ -225,4 +225,9 @@
     color: #FFFFFF;
   }
   
- 
+ .window {
+    margin-top: 150px;
+    font-family: Constantia;
+    font-style: italic;
+    font-weight: 800;
+}
