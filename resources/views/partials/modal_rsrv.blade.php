@@ -24,7 +24,7 @@
         <dl class="row">
           <dt class="col-sm-3">Status</dt>
           <dd class="col-sm-9">
-            @if($isAdminModal === true)
+            @if($isAdminModal == "true")
               <div class="btn-group dropright">
                 <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                   <span id="status"></span>
@@ -68,7 +68,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        @if($isAdminModal === true)
+        @if($isAdminModal == "true")
           <button data-dismiss="modal" id="submit" type="button" class="btn btn-primary" data-id="" data-status-value="">Save changes</button>
         @endif
       </div>
@@ -93,7 +93,7 @@
       $("#passport").html($(e.relatedTarget).data('passport'));
       $("#submit").attr('data-id', $(e.relatedTarget).data('id'));
 
-      addBtnClass(".btn-group .btn", "btn", $(e.relatedTarget)[0].getAttribute('data-status'), $(e.relatedTarget).data('status-value'));
+      addBtnClass(".btn-group .btn", "btn", $(e.relatedTarget)[0].getAttribute('data-status'), $(e.relatedTarget).attr('data-status-value'));
     });
   });
 
@@ -130,8 +130,8 @@
   $("#submit").click(function() {
     $("#reservationModal").modal("hide"); 
     
-    let id  = $(this).data("id");
-    let status_value = $(this).data("status-value");
+    let id  = $(this).attr("data-id");
+    let status_value = $(this).attr("data-status-value");
     let status_name = $("#status").text();
     let _url = '/admin/updateStatus/' + id + '/' + status_value;
 
