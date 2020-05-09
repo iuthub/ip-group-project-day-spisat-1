@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Room;
 use App\RoomType;
@@ -67,7 +68,7 @@ class HotelController extends Controller
       $checkout = $request->input('checkout');
       $room_id = $request->input('room_id');
       $number_of_guests = $request->input('number_of_guests');
-
+      
       $user = Auth::user();
 
       $reservation = new Reservation();      
@@ -92,7 +93,48 @@ class HotelController extends Controller
       $user->reservations()->save($reservation);
       $reservation->paymentDetail()->save($payment_detail);
 
-      return redirect()->route('index');
+      $id = $reservation->id;
+      return response()->json(['success'=> 
+        ['id' => $id],
+        $this->validatePaymentDetails($request)
+      ]);
+    }
+
+    public function validatePaymentDetails(Request $request) {
+      $rules = [
+        'first_name' => ['required', 'string', 'min:1', 'max:128'],
+        'last_name' => ['required', 'string', 'min:1', 'max:128'],
+        'card_number' => ['required', 'string', 'regex:/^\d{16}$/'],
+        'cvc' => ['required', 'string', 'regex:/^\d{3}$/'],
+        'phone' => ['required', 'string', 'regex:/^\+998-\d{2}-\d{7}$/'],
+        'street' => ['required', 'string', 'max:128'],
+        'city' => ['required', 'string', 'max:128'],
+        'country' => ['required', 'string', 'max:128'],
+        'postal_code' => ['required', 'string', 'regex:/^\d{7}$/'],
+        'passport_number' => ['required', 'string', 'regex:/^[a-zA-Z]{2}\d{7}$/']
+      ];
+
+      $customMessages = [
+        'card_number.regex' => 'The card number should contain 16 digits',
+        'cvc.regex' => 'CVC is a 3-digit number on the back of your card',
+        'phone.regex' => 'Phone number format is +998-**-*******',
+        'postal_code.regex' => 'Postal code is a 7-digit number',
+        'passport_number.regex' => 'Passport number should be in format AA1234567'
+      ];
+      $validation = Validator::make($request->all(), $rules, $customMessages);
+
+      if ($validation->fails()) {
+          return ['error'=>$validation->errors()->all()];
+      }
+    }
+
+    public function confirmBooking($id) {
+      if(!Auth::check()) {
+        return redirect()->route('login');
+      }
+      $reservation = Reservation::where('id', $id)->first();
+      
+      return view('hotel.booking_confirmation', ['reservation' => $reservation]);
     }
 
     public function getAdminIndex() {

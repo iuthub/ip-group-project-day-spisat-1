@@ -48,6 +48,16 @@ Route::post('/payment_details/add', [
   'as' => 'addPaymentDetails'
 ]);
 
+Route::post('/payment_details/validate', [
+  'uses' => 'HotelController@validatePaymentDetails',
+  'as' => 'validatePaymentDetails'
+]);
+
+Route::get('/confirm_booking/{id}', [
+  'uses' => 'HotelController@confirmBooking',
+  'as' => 'confirmBooking'
+]);
+
 Route::group([
   'prefix' => 'admin',
   'middleware' => ['auth', 'admin']
