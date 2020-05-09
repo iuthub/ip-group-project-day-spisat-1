@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="offset-md-3 col-md-6 window">
-            <p class="text-center">{{ __('Login') }}</p>
+            <h4 class="text-center">{{ __('Login') }}</h4>
 
             <div>
                 <form method="POST" action="{{ route('login') }}">

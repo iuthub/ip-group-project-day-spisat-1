@@ -1,6 +1,6 @@
 <header class="bg-semi-transparent">
     <nav class="container navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ url('/') }}">
         <img src="./images/Name.svg" alt="The Chemodan" />
       </a>
       <div class="collapse navbar-collapse">
