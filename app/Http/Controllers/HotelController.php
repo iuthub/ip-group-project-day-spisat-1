@@ -267,8 +267,13 @@ class HotelController extends Controller
     public function handleEditRoomType(Request $request) {
       $room_type = RoomType::find($request->input('room_type_id'));
       
+      $roomTypeValidation = "required";
+      if($request->input('type') != $room_type->type){
+        $roomTypeValidation = 'required|unique:App\Room';
+      }
+
       $validation = Validator::make($request->all(), [
-        'type' => 'required|unique:App\RoomType',
+        'type' => $roomTypeValidation,
         'price_per_night' => 'required|numeric',
         'room_capacity' => 'required|integer',
         'area' => 'required|integer',
