@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 use App\Room;
 use App\RoomType;
 use App\Reservation;
@@ -64,6 +66,12 @@ class HotelController extends Controller
     }
 
     public function addPaymentDetails(Request $request) {
+      $validation = $this->validate($request, [
+        'phone' => ['required', 'string', 'regex:/^\+998-\d{2}-\d{7}$/'],
+        'first_name' => ['required', 'string', 'min:2', 'max:255'],
+        'last_name' => ['required', 'string', 'min:2', 'max:255'],
+        'message' => ['required', 'string', 'min:5']
+      ]);
       $checkin = $request->input('checkin');
       $checkout = $request->input('checkout');
       $room_id = $request->input('room_id');
@@ -153,6 +161,11 @@ class HotelController extends Controller
 
     public function deleteRoom(Request $request) {
       $room = Room::find($request->input('room_id'));
+      $folder = public_path().'/uploads/images/rooms/';
+      $imageName = $room->main_picture_name;
+      if (File::exists($folder.'/'.$imageName)) {
+          File::delete($folder.'/'.$imageName);
+      }
       $room->delete();
 
       return redirect()->route('adminRooms');
@@ -166,14 +179,42 @@ class HotelController extends Controller
 
     public function handleEditRoom(Request $request) {
       $room = Room::find($request->input('room_id'));
-      $room->name = $request->input('name');
-      $room->room_number = $request->input('room_number');
-      $room->main_picture_name = $request->input('picture_name');
-      $room->room_type_id = $request->input('room_type_id');
+      $room_types = RoomType::all();
+      $roomNumberValidation = "required";
+      if($request->input('room_number') != $room->room_number){
+        $roomNumberValidation = 'required|unique:App\Room';
+      }
+      $validation = Validator::make($request->all(), [
+        'room_number' => $roomNumberValidation,
+        'picture_name' => 'image|mimes:jpeg,png,jpg,gif|max:10000'
+      ]);      
+      if($validation->passes()){
+        $room->name = $request->input('name');
+        $room->room_number = $request->input('room_number');
+        $room->room_type_id = $request->input('room_type_id');
+        
+        if ($request->has('picture_name')) {
+          $folder = public_path().'/uploads/images/rooms/';
+          $oldImageName = $room->main_picture_name;
+          if (File::exists($folder.'/'.$oldImageName)) {
+              File::delete($folder.'/'.$oldImageName);
+          }
+          $newImageName = time() . '.' . $request->file('picture_name')->getClientOriginalExtension();
+          
+          $request->file('picture_name')->move($folder, $newImageName);
+          $room->main_picture_name = $newImageName;
+        }
+        $room->room_type_id = $request->input('room_type_id');
 
-      $room->save();
-
-      return redirect()->route('adminRooms');
+        $room->save();
+      } else {
+        return view('admin.edit_room', [
+          'room' => $room, 
+          'room_types' => $room_types,
+          'errors' => $validation->errors()]
+        );
+      }
+      return redirect()->route('adminRooms')->with(['success' => 'Room #'.$room->room_number.'has been updated!']);
     }
 
     public function getAdminAddRoom() {
@@ -182,14 +223,32 @@ class HotelController extends Controller
     }
 
     public function handleAddRoom(Request $request) {
-      $room = new Room();
-      $room->name = $request->input('name');
-      $room->room_number = $request->input('room_number');
-      $room->main_picture_name = $request->input('picture_name');
-      $room->room_type_id = $request->input('room_type_id');
 
-      $room->save();
+      $validation = Validator::make($request->all(), [
+        'room_number' => 'required|unique:App\Room',
+        'picture_name' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000'
+      ]);      
+     
+      if($validation->passes()){
+        $room = new Room();
+        $room->name = $request->input('name');
+        $room->room_number = $request->input('room_number');
+        if ($request->has('picture_name')) {
+          $imageName = time() . '.' . $request->file('picture_name')->getClientOriginalExtension();
+          $folder = public_path().'/uploads/images/rooms/';
+          $request->file('picture_name')->move($folder, $imageName);
+          $room->main_picture_name = $imageName;
+        }
+        $room->room_type_id = $request->input('room_type_id');
 
+        $room->save();
+      } else {
+        $room_types = RoomType::all();
+        return view('admin.add_room', [
+          'room_types' => $room_types,
+          'errors' => $validation->errors()]
+        );
+      }
       return redirect()->route('adminRooms');
     }
 

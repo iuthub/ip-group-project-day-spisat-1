@@ -21,7 +21,7 @@
       <tbody>
       @foreach ($rooms as $room)
 
-        <tr class="table-primary">
+        <tr>
           <th scope="row">{{ $room->id }}</th>
 		      <td>{{ $room->name }}</td>
 		      <td>{{ $room->room_number }}</td>
