@@ -68,12 +68,13 @@
 <script>
     $(document).ready(function() {
         
-        const card_number_pattern = new RegExp('^[0-9]{16}$');
-        const cvc_pattern = new RegExp('^[0-9]{3}$');
-        const postal_code_pattern = new RegExp('^[0-9]{7}$');
-        const phone_pattern = new RegExp('^\\+998-[0-9]{2}-[0-9]{7}$');
+        const card_number_pattern = new RegExp('^[\\d]{16}$');
+        const cvc_pattern = new RegExp('^[\\d]{3}$');
+        const city_pattern = new RegExp('^[\\w\\s]{3,}$');
+        const postal_code_pattern = new RegExp('^[\\d]{7}$');
+        const phone_pattern = new RegExp('^\\+998-[\\d]{2}-[\\d]{7}$');
         const passport_number_pattern = new RegExp('^[a-zA-Z]{2}[0-9]{7}$');
-        const alpha_num_pattern = new RegExp('[a-zA-Z0-9]+');
+        const alpha_num_pattern = new RegExp('[\\w]+');
         const required_msg = "Required";
 
         $(".btn-submit").click(function(e){
@@ -108,7 +109,6 @@
             isOkey = isRequiredValidation($("input[name='first_name']")) ? isOkey : false;
             isOkey = isRequiredValidation($("input[name='last_name']")) ? isOkey : false;
             isOkey = isRequiredValidation($("input[name='street']")) ? isOkey : false;
-            isOkey = isRequiredValidation($("input[name='city']")) ? isOkey : false;
             isOkey = isRequiredValidation($("input[name='country']")) ? isOkey : false;
             if(isRequiredValidation($("input[name='card_number']"))) {
                 if(!card_number_pattern.test(card_number)) {
@@ -130,6 +130,13 @@
                     isOkey = false;
                 }
             }
+
+            if(isRequiredValidation($("input[name='city']"))) {
+                if(!city_pattern.test(city)) {
+                    generateErrorMsg($("input[name='city']"), "City should contain words only");
+                    isOkey = false;
+                }
+            }
             
             if(isRequiredValidation($("input[name='phone']"))) {
                 if(!phone_pattern.test(phone)) {
@@ -147,7 +154,6 @@
             }
             
             if(isOkey === true) {
-                console.log('ds');
                 $.ajax({
                     url: "{{ route('addPaymentDetails') }}",
                     type:'POST',
