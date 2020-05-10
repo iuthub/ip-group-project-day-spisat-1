@@ -1,3 +1,4 @@
+
 <div class="col-md-2">
   <ul class="ltmenu">
   <a href="{{ route('adminReservations') }}">Reservations</a><br>

@@ -75,11 +75,13 @@ html, body {
     min-height: 75px;
   }
   .window{
-    margin-top: 150px;
+    position:absolute;
+    margin-top: 0px;
     font-family: Constantia;
   font-style: italic;
   
   }
+  
 .navbar-brand{
   position: absolute;
   width: 372px;
@@ -119,6 +121,7 @@ html, body {
   font-weight: 800;
   font-size: 20px;
   color: black;
+  margin-top:50PX;
 }
 
 .table{
@@ -127,12 +130,19 @@ html, body {
 font-style: italic;
 font-weight: 800;
 }
+.main{
+  margin-top:50px;
+  font-family: Constantia;
+  font-style: italic;
+  font-weight: 800;
+}
 
 .titleName{
-  
   font-family: Constantia;
   font-style: italic;
   font-weight: bold;
+  margin-top: 50px;
+  margin-bottom:0px;
 }
  
 .a{

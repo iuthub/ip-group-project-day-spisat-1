@@ -1,7 +1,7 @@
 @extends('layouts.admin_layout')
 
 @section('content')
-
+<div class="window">
 <div class="main">
   <h1 class="titleName">
     Edit room
@@ -34,5 +34,7 @@
     <input type="hidden" name="room_id" value="{{ $room->id }}">
   </form>
 </div>
+</div>
+
 
 @endsection

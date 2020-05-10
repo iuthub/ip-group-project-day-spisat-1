@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="col-md-9">
+<div class="offset-md-2 col-md-9">
     <h1 class="titleName">
     Admin rooms
   </h1>

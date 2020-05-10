@@ -2,11 +2,12 @@
 
 @section('content')
 
-<div class="main">
-  <h1 class="titleName">
+<div class="col-md-9">
+
+<h1 class="titleName">
     Edit room type
   </h1>
-  <form method="post" action="{{ route('handleAddRoomType') }}">
+ <div class="container"><form method="post" action="{{ route('handleAddRoomType') }}">
     @csrf
     <p>
       Type: <input type="text" name="type" placeholder="Type...">
@@ -27,7 +28,15 @@
     <p>
       <input type="submit" value="Add">
     </p>
-  </form>
+  </form></div>
+   
+  
+
+
+
 </div>
+
+
+  
 
 @endsection

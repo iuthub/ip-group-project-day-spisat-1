@@ -1,7 +1,7 @@
 @extends('layouts.admin_layout')
 
 @section('content')
-
+<div class="window">
 <div class="main">
   <h1 class="titleName">
     Add room
@@ -33,5 +33,7 @@
     </p>
   </form>
 </div>
+</div>
+
 
 @endsection

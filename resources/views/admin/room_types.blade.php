@@ -2,8 +2,9 @@
 
 @section('content')
 
+
 <div class="main">
-  <div class="offset-md-2 col-md-9">
+<div class="offset-md-2 col-md-9">
   <h1 class="titleName">
     Admin room types
   </h1>
@@ -51,7 +52,10 @@
     </table>
   <a href="{{ route('adminAddRoomType') }}"><button>Add room type</button></a>
   </div>
-
 </div>
+
+
+
+  
 
 @endsection
