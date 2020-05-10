@@ -4,9 +4,11 @@
 
 
 <div class="col-md-9">
-    <h1 class="titleName">
-    Admin rooms
-  </h1>
+  <div class="row mt-40">
+    <div class="col-10"><h1 class="titleName">Admin rooms</h1></div>
+    <div class="col-2"><a class="btn btn-success" href="{{ route('adminAddRoom') }}">Add room</a></div>
+  </div>
+     
   <table class="table">
 	  	<thead>
 		    <tr>
@@ -31,7 +33,7 @@
           <td>
             <form method="post" action="{{ route('editRoom') }}">
               @csrf
-              <input type="submit" value="Edit">
+              <input class="btn btn-outline-info" type="submit" value="Edit">
               <input type="hidden" name="room_id" value="{{ $room->id }}">
             </form>
           </td>
@@ -39,7 +41,8 @@
             <form method="post" action="{{ route('deleteRoom') }}">
               @csrf
               <input type="hidden" name="room_id" value="{{ $room->id }}">
-              <input type="submit" value="Delete">
+              <input class="btn btn-outline-secondary" type="submit" value="Delete">
+
             </form>
           </td>
         </tr>
@@ -51,7 +54,7 @@
 
 
  
-  <a href="{{ route('adminAddRoom') }}"><button>Add room</button></a>
+ 
 </div>
 
 @endsection

@@ -1,11 +1,13 @@
 @extends('layouts.admin_layout')
 
 @section('content')
-
-<div class="main" style="border: 1px solid black; overflow: hidden; margin: 40px;">
-  <h1>
+<div class="window">
+<div class="main">
+  <h1 class="titleName">
     Admin reservations
   </h1>
 </div>
+</div>
+
 
 @endsection

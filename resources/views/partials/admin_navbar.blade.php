@@ -1,6 +1,6 @@
 <header class="ahdr">
   <nav class="container navbar navbar-expand-lg navbar-dark">
-    <a href="#" class="navbar-brand">
+    <a href="{{ url('/') }}"class="navbar-brand">
       <img src="{{ asset('images/Name.svg') }}" alt="The Chemodan" />
     </a>
     <div class="collapse navbar-collapse">

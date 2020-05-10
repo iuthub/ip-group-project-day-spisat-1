@@ -23,7 +23,7 @@
     <body>
 
       @include('partials.admin_navbar')
-
+ 
       @include('partials.error')
 
       @include('partials.infobox')
