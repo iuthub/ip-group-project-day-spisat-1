@@ -6,7 +6,7 @@ use Illuminate\Support\Carbon;
 ?>
 @section('content')
 
-<div class="col-md-9">
+<div class="col-md-9 mt-40">
   	<h1 class="titleName">Admin: Reservations</h1>
   
     <table class="table">
@@ -84,7 +84,7 @@ use Illuminate\Support\Carbon;
 					data-phone="{{ $phone }}"
 					data-passport="{{ $passport }}"
 					type="button" 
-					class="btn btn-primary" 
+					class="btn btn-info" 
 					data-toggle="modal" 
 					data-target="#reservationModal">
 		  				View Details
