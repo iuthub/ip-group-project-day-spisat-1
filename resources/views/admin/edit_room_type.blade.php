@@ -32,7 +32,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="">Area:</label> 
-        
+         
         <input class="form-control" type="text" name="area" value="{{ $room_type->area }}">
       </div>
     </div>

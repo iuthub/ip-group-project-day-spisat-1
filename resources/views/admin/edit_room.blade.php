@@ -28,7 +28,7 @@
     </div>
     
     
-    <div class="form-row">
+    <div class="form-row"> 
       <div class="form-group col-md-6">
         <label for="sel1">Room type:</label>
         <select class="form-control" name="room_type_id">
