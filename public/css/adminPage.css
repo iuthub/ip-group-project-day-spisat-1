@@ -125,13 +125,12 @@ html, body {
 }
 
 .table{
-  margin-top: 100px;
   font-family: Constantia;
-font-style: italic;
-font-weight: 800;
+  font-style: italic;
+  font-weight: 800;
 }
 .main{
-  margin-top:50px;
+  /*margin-top:50px;*/
   font-family: Constantia;
   font-style: italic;
   font-weight: 800;
@@ -141,10 +140,12 @@ font-weight: 800;
   font-family: Constantia;
   font-style: italic;
   font-weight: bold;
-  margin-top: 50px;
-  margin-bottom:0px;
+  margin-bottom:25px;
 }
- 
+
+.mt-40 {
+  margin-top: 40px;
+} 
 .a{
 color: #FFFFFF;
 }
